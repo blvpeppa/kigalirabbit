@@ -6,7 +6,8 @@ import { useTranslation } from 'react-i18next';
 import l from "../../assets/pure-julia-uLoWIMCeodM-unsplash.jpg";
 import g17 from '../../assets/G3.jpg';
 import g7 from '../../assets/gallery-7.jpg';
-import g20 from '../../assets/G6.jpg';
+import g21 from '../../assets/g215.jpg';
+
 
 const Training = () => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ const Training = () => {
       title: t("training_program_1_title"),
       description: t("training_program_1_description"),
       duration: "2 days",
-      image: g20,
+      image: g21,
     },
     {
       id: 2,

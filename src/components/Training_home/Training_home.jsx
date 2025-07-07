@@ -7,6 +7,7 @@ import pricing5 from "../../assets/government.jpg";
 import g17 from '../../assets/G3.jpg';
 import g20 from '../../assets/G6.jpg';
 
+
 const Training_home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();

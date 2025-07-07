@@ -22,6 +22,20 @@ import g17 from '../../assets/G3.jpg';
 import g18 from '../../assets/G4.jpg';
 import g19 from '../../assets/G5.jpg';
 import g20 from '../../assets/G6.jpg';
+import g21 from '../../assets/g21.jpg';
+import g22 from '../../assets/IMG-20250707-WA0010.jpg';
+import g23 from '../../assets/IMG-20250707-WA0012.jpg';
+import g24 from '../../assets/IMG-20250707-WA0013.jpg';
+import g25 from '../../assets/IMG-20250707-WA0014.jpg';
+import g26 from '../../assets/IMG-20250707-WA0015.jpg';
+import g27 from '../../assets/IMG-20250707-WA0016.jpg';
+import g28 from '../../assets/IMG-20250707-WA0017.jpg';
+import g29 from '../../assets/IMG-20250707-WA0018.jpg';
+import g30 from '../../assets/IMG-20250707-WA0020.jpg';
+import g31 from '../../assets/IMG-20250707-WA0021.jpg';
+import g32 from '../../assets/IMG-20250707-WA0022.jpg';
+import g33 from '../../assets/gallery-13.jpg';
+
 
 const Gallery = ({ 
   columns = { sm: 2, md: 3, lg: 4, xl: 5 }, 
@@ -49,6 +63,18 @@ const Gallery = ({
     { img: g18, alt: "Gallery image 18" },
     { img: g19, alt: "Gallery image 19" },
     { img: g20, alt: "Gallery image 20" },
+     { img: g21, alt: "Gallery image 21" },
+    { img: g22, alt: "Gallery image 22" },
+    { img: g23, alt: "Gallery image 23" },
+    { img: g24, alt: "Gallery image 24" },
+    { img: g25, alt: "Gallery image 25" },
+    { img: g26, alt: "Gallery image 26" },
+    { img: g27, alt: "Gallery image 27" },
+    { img: g28, alt: "Gallery image 28" },
+    { img: g29, alt: "Gallery image 29" },
+    { img: g30, alt: "Gallery image 30" },
+    { img: g31, alt: "Gallery image 31" },
+    { img: g32, alt: "Gallery image 32" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(null);
