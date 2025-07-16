@@ -2,54 +2,61 @@ import React from 'react';
 
 const KigaliRabbitAIReport = () => {
   const report = {
-    thumbnail: '/images/rabbit-ai-thumbnail.jpg', // ✅ valid in public folder
+    thumbnail: '/images/rabbit-ai-thumbnail.jpg', // ✅ stored in /public
     title: 'Pilot Implementation of Rabbit Artificial Insemination (AI) System in Rwanda',
     org: 'KIGALI RABBIT FARM LTD',
     date: '15 June 2025',
     location: 'Nyarugenge, Nyamirambo, Rwanda',
-    projectPeriod: 'January 2024 – June 2024',
-    pdfLink: '/docs/Rabbit_AI_Report_2025.pdf',     // ✅ valid in public folder
-    docxLink: '/docs/Rabbit_AI_Report_2025.docx',   // ✅ valid in public folder
+    projectPeriod: 'January 2025 – June 2025',
+    pdfLink: '/docs/Rabbit_AI_Report_2025.pdf', // ✅ stored in /public
   };
 
   return (
-    <div className="max-w-5xl mx-auto my-10 p-6 bg-white shadow-lg rounded-xl border border-gray-100">
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Thumbnail Image */}
-        <img
-          src={report.thumbnail}
-          alt="Rabbit AI Report"
-          className="w-full md:w-64 h-auto rounded-lg shadow-md object-cover"
-        />
+    <div className="max-w-4xl mx-auto my-12 bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden">
+      <div className="grid md:grid-cols-3 gap-0">
+        {/* Image */}
+        <div className="md:col-span-1">
+          <img
+            src={report.thumbnail}
+            alt="Rabbit AI Report"
+            className="w-full h-full object-cover aspect-[4/5] rounded-l-2xl"
+          />
+        </div>
 
-        {/* Report Info */}
-        <div className="flex-1 text-slate-800">
-          <h2 className="text-xl md:text-2xl font-bold text-[#056715] leading-snug">
-            {report.title}
-          </h2>
+        {/* Info */}
+        <div className="md:col-span-2 p-6 flex flex-col justify-between">
+          <div>
+            <div className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-3">
+              REPORT 2025
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 leading-snug">
+              {report.title}
+            </h2>
 
-          <div className="mt-3 space-y-1 text-sm text-gray-700">
-            <p><strong>Implementing Organization:</strong> {report.org}</p>
-            <p><strong>Report Date:</strong> {report.date}</p>
-            <p><strong>Project Period:</strong> {report.projectPeriod}</p>
-            <p><strong>Location:</strong> {report.location}</p>
+            <ul className="mt-4 text-sm text-gray-600 space-y-1">
+              <li>
+                <strong>Implementing Organization:</strong> {report.org}
+              </li>
+              <li>
+                <strong>Report Date:</strong> {report.date}
+              </li>
+              <li>
+                <strong>Project Period:</strong> {report.projectPeriod}
+              </li>
+              <li>
+                <strong>Location:</strong> {report.location}
+              </li>
+            </ul>
           </div>
 
-          {/* Download Buttons */}
-          <div className="mt-6 flex gap-4 flex-wrap">
+          {/* Download button */}
+          <div className="mt-6">
             <a
               href={report.pdfLink}
               download
-              className="bg-[#056715] hover:bg-green-700 text-white text-sm font-medium px-5 py-2 rounded-lg transition shadow-md"
+              className="inline-flex items-center gap-2 bg-[#056715] hover:bg-green-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition duration-200"
             >
               📄 Download PDF
-            </a>
-            <a
-              href={report.docxLink}
-              download
-              className="bg-slate-700 hover:bg-slate-900 text-white text-sm font-medium px-5 py-2 rounded-lg transition shadow-md"
-            >
-              📃 Download DOCX
             </a>
           </div>
         </div>
