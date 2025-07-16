@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Archive from "./components/Blogs/Blogs.jsx";
+import Report from "./components/Blogs/KigaliRabbitAIReport.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Training from "./components/Traininig/Training.jsx";
@@ -60,6 +61,7 @@ const App = () => {
               <Route path="/tour" element={<Tour />} />
               <Route path="/training" element={<Training />} />
               <Route path="*" element={<Notfound />} />
+              <Route path="/report" element={<Report />} />
             </Routes>
             <Footer />
           </div>

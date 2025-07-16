@@ -7,7 +7,6 @@ import Blog2 from '../../assets/Blogg.jpg';
 import Blog3 from '../../assets/Bloggg.jpg';
 import Blog4 from '../../assets/Blogggg.jpg';
 import Bloggggg from '../../assets/Bloggggg.jpg';
-
 const BlogArchive = () => {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
