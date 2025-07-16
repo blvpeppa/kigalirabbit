@@ -52,6 +52,7 @@ const App = () => {
           <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
             <Navbar />
             <Routes>
+  
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/products" element={<SP />} />
