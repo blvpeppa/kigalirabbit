@@ -34,8 +34,14 @@ import g29 from '../../assets/IMG-20250707-WA0018.jpg';
 import g30 from '../../assets/IMG-20250707-WA0020.jpg';
 import g31 from '../../assets/IMG-20250707-WA0021.jpg';
 import g32 from '../../assets/IMG-20250707-WA0022.jpg';
-import g33 from '../../assets/gallery-13.jpg';
-
+// Import new images from New folder
+import new1 from '../../assets/New folder/IMG-20250730-WA0001.jpg';
+import new2 from '../../assets/New folder/IMG-20250730-WA0002.jpg';
+import new3 from '../../assets/New folder/IMG-20250730-WA0003.jpg';
+import new4 from '../../assets/New folder/IMG-20250730-WA0004.jpg';
+import new5 from '../../assets/New folder/IMG-20250730-WA0005.jpg';
+// Import video from New folder
+import video1 from '../../assets/New folder/VID-20250730-WA0001.mp4';
 
 const Gallery = ({ 
   columns = { sm: 2, md: 3, lg: 4, xl: 5 }, 
@@ -75,6 +81,14 @@ const Gallery = ({
     { img: g30, alt: "Gallery image 30" },
     { img: g31, alt: "Gallery image 31" },
     { img: g32, alt: "Gallery image 32" },
+    // Add new images from New folder
+    { img: new1, alt: "New Gallery image 1" },
+    { img: new2, alt: "New Gallery image 2" },
+    { img: new3, alt: "New Gallery image 3" },
+    { img: new4, alt: "New Gallery image 4" },
+    { img: new5, alt: "New Gallery image 5" },
+    // Add video from New folder
+    { video: video1, alt: "Rabbit Farm Video", type: "video" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -187,7 +201,7 @@ const Gallery = ({
       )}
 
       {/* Gallery Grid */}
-      <div className={`mx-auto grid grid-cols-${columns.sm} md:grid-cols-${columns.md} lg:grid-cols-${columns.lg} xl:grid-cols-${columns.xl} gap-${gap}`}>
+      <div className={`mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6`}>
         {allGalleryItems.map((item, index) => (
           <motion.div 
             key={index}
@@ -199,12 +213,23 @@ const Gallery = ({
             onClick={() => openModal(index)}
           >
             <div className="aspect-[4/3] w-full">
-              <img 
-                src={item.img}
-                className="absolute inset-0 object-cover w-full h-full"
-                alt={item.alt}
-                loading="lazy"
-              />
+              {item.type === 'video' ? (
+                <video 
+                  src={item.video}
+                  className="absolute inset-0 object-cover w-full h-full"
+                  alt={item.alt}
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <img 
+                  src={item.img}
+                  className="absolute inset-0 object-cover w-full h-full"
+                  alt={item.alt}
+                  loading="lazy"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span className="text-white font-medium truncate">{item.alt}</span>
               </div>
@@ -257,15 +282,27 @@ const Gallery = ({
                       setIsZoomed(!isZoomed);
                     }}
                   >
-                    <motion.img
-                      src={allGalleryItems[currentIndex].img}
-                      alt={allGalleryItems[currentIndex].alt}
-                      className="object-contain w-full h-full select-none"
-                      variants={zoomVariants}
-                      animate={isZoomed ? "zoomed" : "normal"}
-                      transition={{ type: "spring", damping: 20 }}
-                      onLoad={() => setImageLoaded(true)}
-                    />
+                    {allGalleryItems[currentIndex].type === 'video' ? (
+                      <video 
+                        src={allGalleryItems[currentIndex].video}
+                        className="object-contain w-full h-full select-none"
+                        autoPlay
+                        loop
+                        playsInline
+                        controls
+                        preload="auto"
+                      />
+                    ) : (
+                      <motion.img
+                        src={allGalleryItems[currentIndex].img}
+                        alt={allGalleryItems[currentIndex].alt}
+                        className="object-contain w-full h-full select-none"
+                        variants={zoomVariants}
+                        animate={isZoomed ? "zoomed" : "normal"}
+                        transition={{ type: "spring", damping: 20 }}
+                        onLoad={() => setImageLoaded(true)}
+                      />
+                    )}
                     {!imageLoaded && (
                       <div className="absolute inset-0 flex items-center justify-center bg-gray-900/50">
                         <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>

@@ -7,8 +7,7 @@ import { useTranslation } from 'react-i18next';
 import g1 from '../../assets/gallery-1.jpg';
 import g2 from '../../assets/gallery-2.jpg';
 import g3 from '../../assets/gallery-3.jpg';
-import g5 from '../../assets/gallery-5.jpg';
-
+import g5 from '../../assets/gallery-5.jpg';import new1 from '../../assets/New folder/IMG-20250730-WA0001.jpg';
 const Gallery = ({ 
   columns = { sm: 2, md: 3, lg: 4, xl: 5 }, 
   gap = 6,
@@ -21,6 +20,7 @@ const Gallery = ({
     { img: g2, alt: t("gallery_image_alt_2") },
     { img: g3, alt: t("gallery_image_alt_3") },
     { img: g5, alt: t("gallery_image_alt_4") },
+    { img: new1, alt: "New Gallery image 1" }
   ];
   
   const navigate = useNavigate();
@@ -139,7 +139,7 @@ const Gallery = ({
       )}
 
       {/* Gallery Grid */}
-      <div className={`mx-auto grid grid-cols-${columns.sm} md:grid-cols-${columns.md} lg:grid-cols-${columns.lg} xl:grid-cols-${columns.xl} gap-${gap}`}>
+      <div className={`mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6`}>
         {allGalleryItems.map((item, index) => (
           <motion.div 
             key={index}
