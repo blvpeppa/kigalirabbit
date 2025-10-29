@@ -78,24 +78,28 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800">{t('contactus.title')}</h2>
-            <div className="w-20 h-1 bg-green-600 mx-auto mt-4"></div>
+    <div className="min-h-screen bg-nike-white">
+      <section className="py-24 bg-nike-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-nike-5xl sm:text-nike-6xl font-display font-black text-nike-black mb-6">
+              {t('contactus.title')}
+            </h2>
+            <p className="text-nike-xl font-nike font-medium text-nike-gray-600 max-w-3xl mx-auto">
+              Get in touch with us for all your rabbit farming needs
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-3xl text-green-600 mb-3">
-                  <i className={`fa ${item.icon}`} aria-hidden="true"></i>
+              <div key={index} className="group bg-nike-white p-8 shadow-sm hover:shadow-xl transition-all duration-500 text-center border border-nike-gray-200 hover:border-nike-black">
+                <div className="w-16 h-16 bg-nike-gray-100 group-hover:bg-nike-accent transition-colors duration-300 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i className={`fa ${item.icon} text-2xl text-nike-black group-hover:text-nike-white transition-colors duration-300`} aria-hidden="true"></i>
                 </div>
-                <p className="font-semibold text-gray-700 mb-1">{item.label}:</p>
-                <p className="text-gray-600">
+                <p className="text-nike-lg font-nike font-bold text-nike-black mb-2 uppercase tracking-wider">{item.label}:</p>
+                <p className="text-nike-base font-nike text-nike-gray-600">
                   {item.link ? (
-                    <a href={item.link} className="text-blue-500 hover:underline hover:text-blue-600 transition-colors" target="_blank" rel="noopener noreferrer">
+                    <a href={item.link} className="text-nike-accent hover:text-nike-black transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">
                       {item.value}
                     </a>
                   ) : (
@@ -106,9 +110,9 @@ const Contact = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">{t('contactus.contactUs')}</h3>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="bg-nike-white shadow-xl p-10 border border-nike-gray-200">
+              <h3 className="text-nike-4xl font-display font-bold mb-8 text-nike-black">{t('contactus.contactUs')}</h3>
 
               {notification.message && (
                 <Notification
@@ -118,28 +122,71 @@ const Contact = () => {
                 />
               )}
 
-              <form onSubmit={handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <input type="text" name="name" placeholder={t('contactus.name')} className="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500" value={formData.name} onChange={handleInputChange} required />
+                    <input 
+                      type="text" 
+                      name="name" 
+                      placeholder={t('contactus.name')} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                      value={formData.name} 
+                      onChange={handleInputChange} 
+                      required 
+                    />
                   </div>
                   <div>
-                    <input type="email" name="email" placeholder={t('contactus.email')} className="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500" value={formData.email} onChange={handleInputChange} required />
+                    <input 
+                      type="email" 
+                      name="email" 
+                      placeholder={t('contactus.email')} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                      value={formData.email} 
+                      onChange={handleInputChange} 
+                      required 
+                    />
                   </div>
                 </div>
-                <div className="mt-4">
-                  <input type="text" name="subject" placeholder={t('contactus.subject')} className="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500" value={formData.subject} onChange={handleInputChange} required />
+                <div>
+                  <input 
+                    type="text" 
+                    name="subject" 
+                    placeholder={t('contactus.subject')} 
+                    className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    value={formData.subject} 
+                    onChange={handleInputChange} 
+                    required 
+                  />
                 </div>
-                <div className="mt-4">
-                  <textarea name="message" placeholder={t('contactus.message')} className="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500" value={formData.message} onChange={handleInputChange} rows="5" required></textarea>
+                <div>
+                  <textarea 
+                    name="message" 
+                    placeholder={t('contactus.message')} 
+                    className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300 resize-none" 
+                    value={formData.message} 
+                    onChange={handleInputChange} 
+                    rows="6" 
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" className="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors w-full font-medium disabled:opacity-70" disabled={isSubmitting}>
+                <button 
+                  type="submit" 
+                  className="w-full bg-nike-black text-nike-white px-8 py-5 text-nike-lg font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:transform-none" 
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? t('contactus.sending') : t('contactus.send')}
                 </button>
               </form>
             </div>
 
-            <div className="rounded-lg shadow-md h-[450px] bg-cover bg-center hidden md:block" style={{ backgroundImage: `url(${Bgcontact})` }} aria-label="Contact us visual"></div>
+            <div className="relative overflow-hidden bg-nike-gray-100 h-[600px] border border-nike-gray-200">
+              <div 
+                className="h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" 
+                style={{ backgroundImage: `url(${Bgcontact})` }} 
+                aria-label="Contact us visual"
+              />
+              <div className="absolute inset-0 bg-nike-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+            </div>
           </div>
         </div>
       </section>

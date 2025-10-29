@@ -7,11 +7,11 @@ import Blog2 from '../../assets/Blogg.jpg';
 import Blog3 from '../../assets/Bloggg.jpg';
 import Blog4 from '../../assets/Blogggg.jpg';
 import Bloggggg from '../../assets/Bloggggg.jpg';
+
 const BlogArchive = () => {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
 
-  // Blog data with all cards including the "Meet Musoni" card
   const blogs = [
     {
       id: 1,
@@ -157,7 +157,7 @@ const BlogArchive = () => {
       image: Blog1,
       featured: false
     },
-{
+    {
       id: 5,
       title: {
         en: "How rabbits changed fortunes of Rwanda’s top breeder",
@@ -166,7 +166,7 @@ const BlogArchive = () => {
       },
       excerpt: {
         en: "A single rabbit of this breed, used as parent stock, costs Rwf40,000, and his farm sells between 1,000 and 2,000 such rabbits monthly.",
-        fr: "Un seul lapin de cette race, utilisé comme géniteur, coûte 40 000 francs rwandais, et son élevage en vend entre 1 000 et 2 000 par mois.",
+        fr: "Un seul lapin de cette race, utilisé comme géniteur, coûte 40 000 francs rwandais, et son élevage en vend entre 1 000 et 2 000 par mois.",
         rw: "Urukwavu rumwe rw'ubwo bwoko, rukoreshwa nk'imigabane y'ababyeyi, rugura amafaranga 40.000, kandi umurima we ugurisha inkwavu ziri hagati ya 1.000 na 2000 buri kwezi."
       },
       content: {
@@ -177,9 +177,9 @@ const BlogArchive = () => {
         ,"He credits his farm’s success to vision, discipline, infrastructure, and professional practices, including the use of artificial insemination.With artificial insemination, up to 500 rabbits can be inseminated in just two hours, compared to the traditional method that takes months and has a lower success rate.Growing market, untapped potential Despite his farm’s scale, Musoni said he is still unable to meet growing demand for rabbit meat, especially from hotels and restaurants.“We had deals with three hotels to supply 100 rabbits a day, but we couldn’t sustain that volume,” he said, noting the need to supply more farmers with quality breeds to increase national meat production."
         ],
         fr: [
-          "Dans la région modérément vallonnée de Nyamirambo, dans le district de Nyarugenge à Kigali, des milliers de lapins, des lapereaux nouveau-nés aux mâles adultes, évoluent confortablement dans des clapiers en grillage résistant à la rouille.Il est environ 11 heures du matin à la Ferme aux Lapins de Kigali, où les clapiers sont équipés de tapis en plastique, de nids de mise bas, de mangeoires automatiques et d'un système d'abreuvement par canalisation relié à des réservoirs suspendus. L'urine est efficacement acheminée par des tuyaux vers les réservoirs pour assurer l'hygiène.Tout cela est le fruit de la vision de Dieudonné Musoni. Son élevage, spécialisé dans l'élevage de lapins de chair, notamment par insémination artificielle, accueille entre 3 000 et 7 000 lapins chaque mois.",
-          "Musoni, qui préside également l'Association rwandaise des éleveurs de lapins, est le distributeur officiel africain d'Hycole, une entreprise française réputée pour ses races de lapins de chair performantes.Dieudonné Musoni dans son élevage de lapins, spécialisé dans l'élevage de lapins de chair.Un seul lapin de cette race, utilisé comme géniteur, coûte 40 000 francs rwandais, et son élevage en vend entre 1 000 et 2 000 par mois.« Cette race atteint 2,5 kg en seulement 73 jours, et une femelle peut produire jusqu'à 18 lapins tous les 42 jours, soit bien plus que les races locales », explique Musoni.",
-          "Si la race importée est plus chère, elle est également plus rentable, ajoute-t-il. Les lapins Hycole peuvent atteindre jusqu'à 10 kg, soit plus du double des 4,5 kg typiques des variétés locales.De consultant financier à agripreneur Avant de se lancer dans l'agroalimentaire en 2018, Musoni travaillait dans un cabinet de conseil financier et gagnait 150 000 francs rwandais par mois. Diplômé en finance et en gestion des catastrophes, il a exploré plusieurs options agricoles, des cultures aux poulets, en passant par les porcs et les vaches, avant de se tourner vers les lapins, en raison de leurs coûts de démarrage plus faibles.Il a commencé avec 30 lapins locaux, investissant environ 2 millions de francs rwandais, dont 70 % dans la construction de logements pour les animaux. Mais il a vite réalisé que la race locale offrait un rendement limité et s'est tourné vers les lapins Hycole après une formation en France.Dieudonné Musoni, fondateur du Kigali Rabbit Center, et ses coéquipiers à la ferme de Nyarugenge« On peut investir 10 millions de francs rwandais dans l'élevage de lapins et réaliser un bénéfice mensuel de 2 à 3 millions de francs rwandais, si l'élevage est bien géré », explique Musoni."
+          "Dans la région modérément vallonnée de Nyamirambo, dans le district de Nyarugenge à Kigali, des milliers de lapins, des lapereaux nouveau-nés aux mâles adultes, évoluent confortablement dans des clapiers en grillage résistant à la rouille.Il est environ 11 heures du matin à la Ferme aux Lapins de Kigali, où les clapiers sont équipés de tapis en plastique, de nids de mise bas, de mangeoires automatiques et d'un système d'abreuvement par canalisation relié à des réservoirs suspendus. L'urine est efficacement acheminée par des tuyaux vers les réservoirs pour assurer l'hygiène.Tout cela est le fruit de la vision de Dieudonné Musoni. Son élevage, spécialisé dans l'élevage de lapins de chair, notamment par insémination artificielle, accueille entre 3 000 et 7 000 lapins chaque mois.",
+          "Musoni, qui préside également l'Association rwandaise des éleveurs de lapins, est le distributeur officiel africain d'Hycole, une entreprise française réputée pour ses races de lapins de chair performantes.Dieudonné Musoni dans son élevage de lapins, spécialisé dans l'élevage de lapins de chair.Un seul lapin de cette race, utilisé comme géniteur, coûte 40 000 francs rwandais, et son élevage en vend entre 1 000 et 2 000 par mois.« Cette race atteint 2,5 kg en seulement 73 jours, et une femelle peut produire jusqu'à 18 lapins tous les 42 jours, soit bien plus que les races locales », explique Musoni.",
+          "Si la race importée est plus chère, elle est également plus rentable, ajoute-t-il. Les lapins Hycole peuvent atteindre jusqu'à 10 kg, soit plus du double des 4,5 kg typiques des variétés locales.De consultant financier à agripreneur Avant de se lancer dans l'agroalimentaire en 2018, Musoni travaillait dans un cabinet de conseil financier et gagnait 150 000 francs rwandais par mois. Diplômé en finance et en gestion des catastrophes, il a exploré plusieurs options agricoles, des cultures aux poulets, en passant par les porcs et les vaches, avant de se tourner vers les lapins, en raison de leurs coûts de démarrage plus faibles.Il a commencé avec 30 lapins locaux, investissant environ 2 millions de francs rwandais, dont 70 % dans la construction de logements pour les animaux. Mais il a vite réalisé que la race locale offrait un rendement limité et s'est tourné vers les lapins Hycole après une formation en France.Dieudonné Musoni, fondateur du Kigali Rabbit Center, et ses coéquipiers à la ferme de Nyarugenge« On peut investir 10 millions de francs rwandais dans l'élevage de lapins et réaliser un bénéfice mensuel de 2 à 3 millions de francs rwandais, si l'élevage est bien géré », explique Musoni."
         ,"Il attribue le succès de son exploitation à sa vision, sa discipline, ses infrastructures et ses pratiques professionnelles, notamment le recours à l'insémination artificielle.L'insémination artificielle permet d'inséminer jusqu'à 500 lapins en seulement deux heures, contre des mois avec la méthode traditionnelle, qui présente un taux de réussite plus faible.Un marché en pleine croissance, un potentiel inexploité Malgré la taille de son exploitation, Musoni explique qu'il ne parvient toujours pas à répondre à la demande croissante de viande de lapin, notamment de la part des hôtels et des restaurants.« Nous avions des accords avec trois hôtels pour fournir 100 lapins par jour, mais nous ne pouvions pas maintenir ce volume », explique-t-il, soulignant la nécessité d'approvisionner davantage d'éleveurs en races de qualité afin d'accroître la production nationale de viande."
         ],
         rw: [
@@ -198,13 +198,11 @@ const BlogArchive = () => {
     },
   ];
 
-  // State for search and filters
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTag, setSelectedTag] = useState(null);
   const [activeBlog, setActiveBlog] = useState(null);
 
-  // Process blogs for current language
   const processedBlogs = blogs.map(blog => ({
     ...blog,
     title: blog.title[language] || blog.title.en,
@@ -212,13 +210,9 @@ const BlogArchive = () => {
     content: blog.content[language] || blog.content.en
   }));
 
-  // Get all unique tags
   const allTags = [...new Set(blogs.flatMap(blog => blog.tags))];
-
-  // Get all categories
   const categories = ['all', ...new Set(blogs.map(blog => blog.category))];
 
-  // Client-side search and filtering
   const filteredBlogs = processedBlogs.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
@@ -228,35 +222,31 @@ const BlogArchive = () => {
     return matchesSearch && matchesCategory && matchesTag;
   });
 
-  // Format date based on current language
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(language, options);
   };
 
-  // Get category name from translations
   const getCategoryName = (categoryKey) => {
     return t(`categories.${categoryKey}`) || categoryKey;
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6">
             {t('blog.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl font-medium text-gray-600 max-w-3xl mx-auto">
             {t('blog.subtitle')}
           </p>
         </motion.div>
 
-        {/* Featured Posts */}
         {processedBlogs.filter(b => b.featured).length > 0 && (
           <motion.div className="mb-16">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
@@ -271,13 +261,13 @@ const BlogArchive = () => {
                   getCategoryName={getCategoryName}
                   onReadMore={() => setActiveBlog(blog)}
                   t={t}
+                  featured={true}
                 />
               ))}
             </div>
           </motion.div>
         )}
 
-        {/* Search and Filters */}
         <motion.div className="bg-white rounded-xl shadow-md p-6 mb-12">
           <div className="flex flex-col md:flex-row gap-4">
             <SearchInput 
@@ -285,6 +275,8 @@ const BlogArchive = () => {
               onChange={setSearchTerm}
               placeholder={t('blog.search_placeholder')}
             />
+          </div>
+          <div className="flex flex-col md:flex-row gap-4 mt-4">
             <CategorySelect 
               value={selectedCategory}
               onChange={setSelectedCategory}
@@ -301,38 +293,34 @@ const BlogArchive = () => {
           </div>
         </motion.div>
 
-        {/* Blog Posts Grid */}
         <motion.div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
             {t('blog.latest_articles')}
           </h2>
           
           {filteredBlogs.length === 0 ? (
-            <div className="bg-white rounded-xl shadow-md p-8 text-center">
+            <div className="bg-white rounded-xl p-8 text-center">
               <p className="text-gray-600 text-lg">
                 {t('blog.no_articles_found')}
               </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence>
-                {filteredBlogs.map(blog => (
-                  <BlogCard 
-                    key={blog.id}
-                    blog={blog}
-                    formatDate={formatDate}
-                    getCategoryName={getCategoryName}
-                    onReadMore={() => setActiveBlog(blog)}
-                    t={t}
-                    compact
-                  />
-                ))}
-              </AnimatePresence>
+              {filteredBlogs.map(blog => (
+                <BlogCard 
+                  key={blog.id}
+                  blog={blog}
+                  formatDate={formatDate}
+                  getCategoryName={getCategoryName}
+                  onReadMore={() => setActiveBlog(blog)}
+                  t={t}
+                  compact={false}
+                />
+              ))}
             </div>
           )}
         </motion.div>
 
-        {/* Blog Detail Modal */}
         <BlogModal 
           blog={activeBlog}
           onClose={() => setActiveBlog(null)}
@@ -345,42 +333,42 @@ const BlogArchive = () => {
   );
 };
 
-// Sub-components (same as before)
-const BlogCard = ({ blog, formatDate, getCategoryName, onReadMore, t, compact = false }) => (
+const BlogCard = ({ blog, formatDate, getCategoryName, onReadMore, t, compact = false, featured = false }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+    className={`group bg-white ${!featured ? 'hover:shadow-xl' : ''} transition-all duration-500 overflow-hidden`}
   >
-    <div className={`${compact ? 'h-40' : 'h-48'} overflow-hidden`}>
+    <div className={`${compact ? 'h-40' : 'h-64'} overflow-hidden relative`}>
       <img 
         src={blog.image} 
         alt={blog.title}
-        className="w-full h-full object-cover hover:scale-105 transition-transform"
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
       />
+      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+      <div className="absolute top-4 left-4 bg-white px-3 py-1 text-sm font-bold uppercase tracking-wider">
+        {getCategoryName(blog.category)}
+      </div>
     </div>
-    <div className="p-6">
-      <div className="flex items-center text-sm text-gray-500 mb-2">
-        <FiCalendar className="mr-1" />
-        <span className="mr-4">{formatDate(blog.date)}</span>
-        <FiClock className="mr-1" />
+    <div className="p-6 pt-8">
+      <div className="flex items-center text-sm text-gray-500 mb-4">
+        <FiCalendar className="mr-2" />
+        <span className="mr-6">{formatDate(blog.date)}</span>
+        <FiClock className="mr-2" />
         <span>{blog.readTime} {t('blog.min_read')}</span>
       </div>
-      <h3 className={`${compact ? 'text-lg' : 'text-xl'} font-bold text-gray-800 mb-2`}>
+      <h3 className={`${compact ? 'text-lg' : 'text-xl'} font-bold text-black mb-3 group-hover:text-gray-800 transition-colors duration-300`}>
         {blog.title}
       </h3>
-      <p className={`text-gray-600 ${compact ? 'text-sm' : ''} mb-4`}>
+      <p className={`text-base font-medium text-gray-600 ${compact ? 'text-sm' : ''} mb-6 leading-relaxed`}>
         {blog.excerpt}
       </p>
-      <div className="flex justify-between items-center">
-        <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-          {getCategoryName(blog.category)}
-        </span>
+      <div className="group/btn">
         <button
           onClick={onReadMore}
-          className="text-green-600 hover:text-green-800 font-medium flex items-center"
+          className="inline-flex items-center text-black font-bold uppercase tracking-wider hover:text-gray-800 transition-colors duration-300 text-sm"
         >
           {compact ? t('blog.continue_reading') : t('blog.read_more')}
-          <FiArrowRight className="ml-1" />
+          <FiArrowRight className="ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
         </button>
       </div>
     </div>
@@ -398,14 +386,15 @@ const BlogModal = ({ blog, onClose, formatDate, getCategoryName, t }) => (
         onClick={onClose}
       >
         <motion.div 
-          initial={{ scale: 0.9, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          exit={{ scale: 0.9, y: 20 }}
-          className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+          initial={{ x: '-100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: '-100%', opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
           onClick={e => e.stopPropagation()}
         >
           <div className="relative">
-            <div className="h-full md:h-70 overflow-hidden">
+            <div className="h-64 md:h-96 overflow-hidden">
               <img 
                 src={blog.image} 
                 alt={blog.title}
@@ -455,7 +444,6 @@ const BlogModal = ({ blog, onClose, formatDate, getCategoryName, t }) => (
   </AnimatePresence>
 );
 
-// Form components (same as before)
 const SearchInput = ({ value, onChange, placeholder }) => (
   <div className="relative flex-1">
     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

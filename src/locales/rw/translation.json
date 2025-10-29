@@ -214,12 +214,34 @@
         }
       ]
     },
+    "story": {
+      "title": "Urugendo Rwacu",
+      "subtitle": "Kuva ku cyerekezo kugeza ku ukuri - kwiyemeza kwacu ku bwiza",
+      "tab_subtitle": "Kwiyemeza Kwacu"
+    },
+    "tabs": {
+      "mission": {
+        "title": "Intego Zacu",
+        "content": "Guhindura ubworozi bw'inzobe muri Afurika binyuze mu buryo burambye, ubwoko bw'inzobere, n'amahugurwa yuzuye yongera ubushobozi bw'aborozi n'abaturage.",
+        "features": ["Uburyo bwo kworora burambye", "Kongera ubushobozi bw'abaturage", "Gahunda z'ubworozi bwiza", "Ubwiza mu burezi"]
+      },
+      "vision": {
+        "title": "Icyerekezo Cyacu",
+        "content": "Kuba ikigo cy'ubwoko cyatanga umuyoboro mu bworozi bw'inzobe muri Afurika y'Iburasirazuba, gushyiraho urugero rw'ubushakashatsi, komeza kubaho, n'ubwiza mu bworozi.",
+        "features": ["Ubuyobozi bw'isi mu bwoko", "Gushakisha udushya", "Kubungabunga ibidukikije", "Kwagura mu karere"]
+      },
+      "values": {
+        "title": "Indangagaciro Zacu",
+        "content": "Twiyemeje kwita ku bwigenge, ubwiza, komeza kubaho, no guteza imbere abaturage. Izi ndangagaciro zifatika zitunga buri cyemezo dukora n'umurimo wose dukora.",
+        "features": ["Ubwigenge mu bikorwa byose", "Ubwiza mu gutanga serivisi", "Komeza kubaho mu bikorwa", "Guteza imbere abaturage"]
+      }
+    },
     "modals": {
       "news": {
-        "title": "Amakuru n’Ibigezweho",
+        "title": "Amakuru n'Ibigezweho",
         "items": [
           {
-            "title": "Ubuhanga bushya mu kororoka kw’inzobe",
+            "title": "Ubuhanga bushya mu kororoka kw'inzobe",
             "date": "Kamena 15, 2023",
             "content": "Twashyizeho uburyo bushya bwo kororoka bwongera amahirwe yo gutsinda ku kigero cya 40%. Iyandikishe mu mahugurwa yacu azakurikiraho."
           },
@@ -231,7 +253,7 @@
           {
             "title": "Amahugurwa ku Nsimburangingo",
             "date": "Mata 10, 2023",
-            "content": "Iyandikishe mu mahugurwa y’icyemezo ku nsimburangingo atangira ukwezi gutaha."
+            "content": "Iyandikishe mu mahugurwa y'icyemezo ku nsimburangingo atangira ukwezi gutaha."
           }
         ]
       },

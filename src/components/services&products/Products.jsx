@@ -82,59 +82,102 @@ const Products = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('products.title')}</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">{t('products.subtitle')}</p>
+    <section className="py-24 bg-nike-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-nike-5xl sm:text-nike-6xl font-display font-black text-nike-black mb-6">
+            {t('products.title')}
+          </h2>
+          <p className="text-nike-xl font-nike font-medium text-nike-gray-600 max-w-3xl mx-auto">
+            {t('products.subtitle')}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="relative h-[250px] sm:h-[350px]">
+            <div key={product.id} className="group bg-nike-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-nike-gray-200 hover:border-nike-black">
+              <div className="relative h-80 overflow-hidden">
                 <img src={product.image} alt={product.name} className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
                 <img src={product.hoverImage} alt={`${product.name} alternate view`} className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-nike-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                <div className="absolute top-4 right-4 bg-nike-white px-3 py-1 text-nike-sm font-nike font-bold uppercase tracking-wider border border-nike-gray-200">
+                  {product.category}
+                </div>
               </div>
-              <div className="bg-white p-4">
-                <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
-                <p className="text-sm text-gray-500">{product.category}</p>
-                <button onClick={() => handleOrder(product)} className="w-full rounded-md bg-green-600 py-2 text-white mt-4">{t('products.contact')}</button>
+              <div className="p-6">
+                <h3 className="text-nike-xl font-display font-bold text-nike-black mb-3 group-hover:text-nike-accent transition-colors duration-300">
+                  {product.name}
+                </h3>
+                <button 
+                  onClick={() => handleOrder(product)} 
+                  className="w-full bg-nike-black text-nike-white py-3 text-nike-sm font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105"
+                >
+                  {t('products.contact')}
+                </button>
               </div>
             </div>
           ))}
         </div>
 
         {selectedProduct && (
-          <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
-            <div className="bg-gray-800 rounded-lg max-w-md w-full p-6 relative">
-              <button onClick={resetOrder} className="absolute top-4 right-4 text-gray-400 hover:text-white">
+          <div className="fixed inset-0 bg-nike-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+            <div className="bg-nike-white rounded-none max-w-lg w-full p-8 relative border border-nike-gray-200">
+              <button onClick={resetOrder} className="absolute top-6 right-6 text-nike-gray-400 hover:text-nike-black transition-colors duration-300">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
 
               {!ticket ? (
-                <form onSubmit={handleSubmit}>
-                  <h3 className="text-2xl font-bold text-white mb-4">Contact About {selectedProduct.name}</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <h3 className="text-nike-3xl font-display font-bold text-nike-black mb-6">Contact About {selectedProduct.name}</h3>
 
-                  <div className="mb-4">
-                    <label className="block text-gray-300 mb-2">{t('products.quantity')}</label>
-                    <input type="number" min="1" value={quantity} onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))} className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600" />
+                  <div>
+                    <label className="block text-nike-lg font-nike font-bold text-nike-black mb-3 uppercase tracking-wider">{t('products.quantity')}</label>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      value={quantity} 
+                      onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
                   </div>
 
-                  <div className="space-y-3 mb-4">
-                    <input type="text" required placeholder="Full Name *" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600" />
-                    <input type="email" required placeholder="Email *" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600" />
+                  <div className="space-y-4">
+                    <input 
+                      type="text" 
+                      required 
+                      placeholder="Full Name *" 
+                      value={formData.name} 
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
+                    <input 
+                      type="email" 
+                      required 
+                      placeholder="Email *" 
+                      value={formData.email} 
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
                   </div>
 
-                  <button type="submit" className="w-full py-2 bg-pink-600 text-white rounded hover:bg-pink-700" disabled={isLoading}>
+                  <button 
+                    type="submit" 
+                    className="w-full bg-nike-black text-nike-white py-4 text-nike-lg font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:transform-none" 
+                    disabled={isLoading}
+                  >
                     {isLoading ? t('products.submitting') : t('products.submit')}
                   </button>
                 </form>
               ) : (
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-bold text-white mb-1">{t('products.submitted')}</h3>
-                  <p className="text-gray-300 text-sm">{t('products.reference')}: {ticket.reference}</p>
-                  <button onClick={resetOrder} className="w-full py-2 bg-pink-600 text-white rounded hover:bg-pink-700">{t('products.close')}</button>
+                <div className="text-center">
+                  <h3 className="text-nike-2xl font-display font-bold text-nike-black mb-4">{t('products.submitted')}</h3>
+                  <p className="text-nike-base font-nike text-nike-gray-600 mb-6">{t('products.reference')}: <span className="font-bold text-nike-accent">{ticket.reference}</span></p>
+                  <button 
+                    onClick={resetOrder} 
+                    className="w-full bg-nike-black text-nike-white py-4 text-nike-lg font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105"
+                  >
+                    {t('products.close')}
+                  </button>
                 </div>
               )}
             </div>

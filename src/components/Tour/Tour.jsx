@@ -227,19 +227,23 @@ const PricingCards = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800">{t('pricing.title')}</h2>
-          <p className="text-gray-600 mt-2">{t('pricing.subtitle')}</p>
+    <section className="py-24 bg-nike-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-nike-5xl sm:text-nike-6xl font-display font-black text-nike-black mb-6">
+            {t('pricing.title')}
+          </h2>
+          <p className="text-nike-xl font-nike font-medium text-nike-gray-600 max-w-3xl mx-auto">
+            {t('pricing.subtitle')}
+          </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {/* Nike-style Pricing Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {pricingOptions.map((option) => (
             <div 
               key={option.id} 
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
+              className="group bg-nike-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-nike-gray-200 hover:border-nike-black"
             >
               <div className="relative h-80 overflow-hidden">
                 <img
@@ -252,32 +256,38 @@ const PricingCards = () => {
                   alt={`${option.title} ${t('common.alternate_view')}`}
                   className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
+                <div className="absolute inset-0 bg-nike-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                <div className="absolute top-4 right-4 bg-nike-white px-3 py-1 text-nike-sm font-nike font-bold uppercase tracking-wider border border-nike-gray-200">
+                  {option.price}
+                </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{option.title}</h3>
-                <p className="text-gray-600 mb-4">{option.description}</p>
+              <div className="p-8">
+                <h3 className="text-nike-2xl font-display font-bold text-nike-black mb-3 group-hover:text-nike-accent transition-colors duration-300">
+                  {option.title}
+                </h3>
+                <p className="text-nike-base font-nike text-nike-gray-600 mb-6 leading-relaxed">
+                  {option.description}
+                </p>
                 
-                <div className="mb-4">
-                  <h4 className="font-semibold text-green-700 mb-2">{t('pricing.includes')}:</h4>
-                  <ul className="space-y-1">
+                <div className="mb-6">
+                  <h4 className="font-nike font-bold text-nike-black mb-3 uppercase tracking-wider">{t('pricing.includes')}:</h4>
+                  <ul className="space-y-2">
                     {option.includes.map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <FaCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>{item}</span>
+                        <FaCheck className="text-nike-accent mt-1 mr-3 flex-shrink-0" />
+                        <span className="text-nike-sm font-nike text-nike-gray-600">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="flex justify-between items-center">
-                  <button
-                    onClick={() => handleSelectOption(option)}
-                    className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded transition-colors duration-300"
-                  >
-                    {t('common.book_now')}
-                  </button>
-                </div>
+                <button
+                  onClick={() => handleSelectOption(option)}
+                  className="w-full bg-nike-black text-nike-white py-3 text-nike-sm font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105"
+                >
+                  {t('common.book_now')}
+                </button>
               </div>
             </div>
           ))}

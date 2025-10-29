@@ -54,33 +54,49 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-10 mb-10">
-      <div className="container">
-        {/* header section */}
-        <div className="mb-10">
-          <h1 data-aos="fade-up" className="text-center text-4xl font-bold font-cursive">
+    <div className="py-24 bg-nike-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Nike-style header section */}
+        <div className="text-center mb-20">
+          <h1 data-aos="fade-up" className="text-nike-5xl sm:text-nike-6xl font-display font-black text-nike-black mb-6">
             {translate("testimonials.title")}
           </h1>
+          <p data-aos="fade-up" className="text-nike-xl font-nike font-medium text-nike-gray-600 max-w-3xl mx-auto">
+            Hear from our satisfied customers and partners
+          </p>
         </div>
 
-        {/* Testimonial cards */}
+        {/* Nike-style Testimonial cards */}
         <div data-aos="zoom-in">
           <Slider {...settings}>
             {TestimonialData.map((data) => (
               <div key={data.id} className="my-6">
-                <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-primary/10 relative">
-                  <div className="mb-4">
-                    <img src={data.img} alt="testimonial" className="rounded-full w-20 h-20" />
+                <div className="group bg-nike-white shadow-sm hover:shadow-xl transition-all duration-500 py-12 px-8 mx-4 border border-nike-gray-200 hover:border-nike-black relative overflow-hidden">
+                  {/* Nike-style Quote Mark */}
+                  <div className="absolute top-6 right-6 text-nike-gray-200 text-8xl font-display font-black opacity-20">
+                    "
                   </div>
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <p className="text-xs text-gray-500">{data.text}</p>
-                      <h1 className="text-xl font-bold text-black/80 font-cursive2">
-                        {data.name}
-                      </h1>
+                  
+                  <div className="flex flex-col items-center text-center relative z-10">
+                    {/* Nike-style Profile Image */}
+                    <div className="mb-6">
+                      <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-nike-gray-200 group-hover:border-nike-accent transition-colors duration-300">
+                        <img src={data.img} alt={data.name} className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                    
+                    {/* Nike-style Testimonial Content */}
+                    <div className="space-y-4 max-w-md">
+                      <p className="text-nike-base font-nike text-nike-gray-600 leading-relaxed italic">
+                        "{data.text}"
+                      </p>
+                      <div className="border-t border-nike-gray-200 pt-4">
+                        <h3 className="text-nike-lg font-display font-bold text-nike-black uppercase tracking-wider">
+                          {data.name}
+                        </h3>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">,,</p>
                 </div>
               </div>
             ))}

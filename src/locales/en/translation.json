@@ -215,6 +215,28 @@
         }
       ]
     },
+    "story": {
+      "title": "Our Journey",
+      "subtitle": "From vision to reality - our commitment to excellence",
+      "tab_subtitle": "Our Commitment"
+    },
+    "tabs": {
+      "mission": {
+        "title": "Our Mission",
+        "content": "To revolutionize rabbit farming in Africa through sustainable practices, cutting-edge genetics, and comprehensive training programs that empower farmers and communities.",
+        "features": ["Sustainable farming practices", "Community empowerment", "Quality breeding programs", "Educational excellence"]
+      },
+      "vision": {
+        "title": "Our Vision",
+        "content": "To become the leading genetic center for rabbit farming in East Africa, setting the standard for innovation, sustainability, and excellence in agricultural practices.",
+        "features": ["Global leadership in genetics", "Innovation focus", "Environmental stewardship", "Regional expansion"]
+      },
+      "values": {
+        "title": "Our Values",
+        "content": "We are committed to integrity, excellence, sustainability, and community development. These core values guide every decision we make and every service we provide.",
+        "features": ["Integrity in all operations", "Excellence in service delivery", "Sustainability in practices", "Community development focus"]
+      }
+    },
     "modals": {
       "news": {
         "title": "Latest News & Updates",

@@ -16,7 +16,6 @@ const Services = () => {
       id: 1,
       title: t('services.breeding.title'),
       description: t('services.breeding.description'),
-      icon: '🐇',
       image: s8,
       hoverImage: s7
     },
@@ -24,7 +23,6 @@ const Services = () => {
       id: 2,
       title: t('services.hutch.title'),
       description: t('services.hutch.description'),
-      icon: '🏠',
       image: s2,
       hoverImage: s5
     },
@@ -32,7 +30,6 @@ const Services = () => {
       id: 3,
       title: t('services.nutrition.title'),
       description: t('services.nutrition.description'),
-      icon: '🥕',
       image: s3,
       hoverImage: s6
     },
@@ -40,30 +37,29 @@ const Services = () => {
       id: 4,
       title: t('services.health.title'),
       description: t('services.health.description'),
-      icon: '💉',
       image: Imite,
       hoverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=772&q=80'
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block mb-4 px-4 py-1 text-sm font-semibold text-pink-500 uppercase tracking-widest">
+          <span className="inline-block mb-4 px-4 py-1 text-sm font-semibold text-black uppercase tracking-widest">
             {t('services.sectionLabel')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             {t('services.sectionTitle')}
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             {t('services.sectionDescription')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <div key={service.id} className="group relative block h-96 overflow-hidden rounded-lg shadow-xl">
+            <div key={service.id} className="group relative block h-96 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div className="absolute inset-0 h-full w-full">
                 <img
                   alt={service.title}
@@ -77,10 +73,10 @@ const Services = () => {
                 />
               </div>
 
-              <div className="relative p-6 h-full flex flex-col bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+              <div className="relative p-6 h-full flex flex-col bg-gradient-to-t from-black/50 via-black/20 to-transparent group-hover:bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-all duration-300">
                 <div className="mb-4">
-                  <span className="text-sm font-medium tracking-widest text-pink-500 uppercase">
-                    {service.icon} {service.title.split(' ')[0]}
+                  <span className="text-sm font-medium tracking-widest text-white uppercase">
+                    {service.title.split(' ')[0]}
                   </span>
                   <p className="text-xl font-bold text-white sm:text-2xl">
                     {service.title.split(' ').slice(1).join(' ')}
@@ -90,16 +86,15 @@ const Services = () => {
                 <div className="mt-auto">
                   <div className="translate-y-8 transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-sm text-white">{service.description}</p>
-                    <button className="mt-4 inline-flex items-center px-4 py-2 bg-pink-600 text-white text-sm font-medium rounded hover:bg-pink-700 transition-colors">
+                    <button className="mt-4 inline-flex items-center px-6 py-2 bg-black text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors">
                       {t('services.learnMore')}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   </div>
                 </div>
               </div>
-
             </div>
           ))}
         </div>

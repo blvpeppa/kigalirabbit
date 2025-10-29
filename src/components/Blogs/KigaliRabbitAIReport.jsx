@@ -2,63 +2,48 @@ import React from 'react';
 
 const KigaliRabbitAIReport = () => {
   const report = {
-    thumbnail: '/images/rabbit-ai-thumbnail.jpg', // ✅ stored in /public
+    thumbnail: '/images/rabbit-ai-thumbnail.jpg',
     title: 'Pilot Implementation of Rabbit Artificial Insemination (AI) System in Rwanda',
     org: 'KIGALI RABBIT FARM LTD',
     date: '15 June 2025',
     location: 'Nyarugenge, Nyamirambo, Rwanda',
     projectPeriod: 'January 2025 – June 2025',
-    pdfLink: '/docs/Rabbit_AI_Report_2025.pdf', // ✅ stored in /public
+    pdfLink: '/docs/Rabbit_AI_Report_2025.pdf',
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-12 bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden">
-      <div className="grid md:grid-cols-3 gap-0">
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-4xl mx-auto flex items-center p-6 bg-white rounded-lg shadow-md">
         {/* Image */}
-        <div className="md:col-span-1">
+        <div className="w-1/2 pr-6">
           <img
             src={report.thumbnail}
             alt="Rabbit AI Report"
-            className="w-full h-full object-cover aspect-[4/5] rounded-l-2xl"
+            className="w-full h-64 object-cover rounded-lg"
           />
         </div>
 
-        {/* Info */}
-        <div className="md:col-span-2 p-6 flex flex-col justify-between">
-          <div>
-            <div className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full mb-3">
-              REPORT 2025
-            </div>
-            <h2 className="text-xl font-bold text-gray-800 leading-snug">
-              {report.title}
-            </h2>
-
-            <ul className="mt-4 text-sm text-gray-600 space-y-1">
-              <li>
-                <strong>Implementing Organization:</strong> {report.org}
-              </li>
-              <li>
-                <strong>Report Date:</strong> {report.date}
-              </li>
-              <li>
-                <strong>Project Period:</strong> {report.projectPeriod}
-              </li>
-              <li>
-                <strong>Location:</strong> {report.location}
-              </li>
-            </ul>
+        {/* Text and Button */}
+        <div className="w-1/2 pl-6">
+          <div className="inline-block px-4 py-1 bg-gray-200 text-black text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
+            REPORT 2025
           </div>
-
-          {/* Download button */}
-          <div className="mt-6">
-            <a
-              href={report.pdfLink}
-              download
-              className="inline-flex items-center gap-2 bg-[#056715] hover:bg-green-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition duration-200"
-            >
-              📄 Download PDF
-            </a>
-          </div>
+          <h2 className="text-xl font-bold text-black mb-4 font-sans tracking-tight">
+            {report.title}
+          </h2>
+          <ul className="text-sm text-gray-800 space-y-1 mb-4">
+            <li><strong>Organization:</strong> {report.org}</li>
+            <li><strong>Date:</strong> {report.date}</li>
+            <li><strong>Period:</strong> {report.projectPeriod}</li>
+            <li><strong>Location:</strong> {report.location}</li>
+          </ul>
+          <a
+            href={report.pdfLink}
+            download
+            className="inline-block bg-black text-white text-sm font-semibold px-6 py-2 rounded-full hover:bg-gray-900 transition duration-200"
+          >
+            Download PDF
+          </a>
         </div>
       </div>
     </div>

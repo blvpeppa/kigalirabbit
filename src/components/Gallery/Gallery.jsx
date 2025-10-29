@@ -34,20 +34,19 @@ import g29 from '../../assets/IMG-20250707-WA0018.jpg';
 import g30 from '../../assets/IMG-20250707-WA0020.jpg';
 import g31 from '../../assets/IMG-20250707-WA0021.jpg';
 import g32 from '../../assets/IMG-20250707-WA0022.jpg';
+
 // Import new images from New folder
 import new1 from '../../assets/New folder/IMG-20250730-WA0001.jpg';
 import new2 from '../../assets/New folder/IMG-20250730-WA0002.jpg';
 import new3 from '../../assets/New folder/IMG-20250730-WA0003.jpg';
 import new4 from '../../assets/New folder/IMG-20250730-WA0004.jpg';
 import new5 from '../../assets/New folder/IMG-20250730-WA0005.jpg';
+
 // Import video from New folder
 import video1 from '../../assets/New folder/VID-20250730-WA0001.mp4';
+import video2 from '../../assets/New folder/VID-20250730-WA0002.mp4';
 
-const Gallery = ({ 
-  columns = { sm: 2, md: 3, lg: 4, xl: 5 }, 
-  gap = 6,
-  showTitle = true
-}) => {
+const Gallery = ({ columns = { sm: 2, md: 3, lg: 3, xl: 4 }, gap = 6, showTitle = true }) => {
   const allGalleryItems = [
     { img: g1, alt: "Gallery image 1" },
     { img: g2, alt: "Gallery image 2" },
@@ -69,7 +68,7 @@ const Gallery = ({
     { img: g18, alt: "Gallery image 18" },
     { img: g19, alt: "Gallery image 19" },
     { img: g20, alt: "Gallery image 20" },
-     { img: g21, alt: "Gallery image 21" },
+    { img: g21, alt: "Gallery image 21" },
     { img: g22, alt: "Gallery image 22" },
     { img: g23, alt: "Gallery image 23" },
     { img: g24, alt: "Gallery image 24" },
@@ -89,7 +88,16 @@ const Gallery = ({
     { img: new5, alt: "New Gallery image 5" },
     // Add video from New folder
     { video: video1, alt: "Rabbit Farm Video", type: "video" },
+    { video: video2, alt: "Rabbit Farm Video2", type: "video" },
+
   ];
+
+  const [selectedType, setSelectedType] = useState('all');
+  const filteredItems = allGalleryItems.filter(item => 
+    selectedType === 'all' || 
+    (selectedType === 'images' && !item.type) || 
+    (selectedType === 'videos' && item.type === 'video')
+  );
 
   const [currentIndex, setCurrentIndex] = useState(null);
   const [direction, setDirection] = useState(0);
@@ -100,7 +108,7 @@ const Gallery = ({
   // Handle keyboard navigation
   const handleKeyDown = useCallback((e) => {
     if (currentIndex !== null) {
-      switch(e.key) {
+      switch (e.key) {
         case 'Escape':
           closeModal();
           break;
@@ -130,7 +138,7 @@ const Gallery = ({
     e?.stopPropagation();
     setDirection(-1);
     setImageLoaded(false);
-    setCurrentIndex(prev => (prev > 0 ? prev - 1 : allGalleryItems.length - 1));
+    setCurrentIndex(prev => (prev > 0 ? prev - 1 : filteredItems.length - 1));
     setIsZoomed(false);
   };
 
@@ -138,7 +146,7 @@ const Gallery = ({
     e?.stopPropagation();
     setDirection(1);
     setImageLoaded(false);
-    setCurrentIndex(prev => (prev < allGalleryItems.length - 1 ? prev + 1 : 0));
+    setCurrentIndex(prev => (prev < filteredItems.length - 1 ? prev + 1 : 0));
     setIsZoomed(false);
   };
 
@@ -162,20 +170,9 @@ const Gallery = ({
   };
 
   const imageVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
-    },
-    exit: (direction) => ({
-      x: direction < 0 ? '100%' : '-100%',
-      opacity: 0,
-      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
-    })
+    enter: (direction) => ({ x: direction > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+    exit: (direction) => ({ x: direction < 0 ? '100%' : '-100%', opacity: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } })
   };
 
   const zoomVariants = {
@@ -184,58 +181,154 @@ const Gallery = ({
   };
 
   return (
-    <section className="px-4 py-12 mx-auto max-w-7xl">
-      {/* Gallery Title */}
+    <section className="px-4 py-16 mx-auto max-w-7xl bg-white">
+      {/* Nike-style Gallery Title */}
       {showTitle && (
-        <div className="w-full mx-auto text-center mb-16">
-          <motion.h1 
+        <div className="w-full mx-auto text-center mb-12">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl"
+            className="text-4xl font-bold text-black mb-4"
           >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Image Gallery
-            </span>
+            Image Gallery
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+          >
+            Discover our state-of-the-art rabbit farming facilities and breeding programs
+          </motion.p>
         </div>
       )}
 
-      {/* Gallery Grid */}
-      <div className={`mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6`}>
-        {allGalleryItems.map((item, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            whileHover={{ scale: 1.02 }}
-            className="relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
-            onClick={() => openModal(index)}
-          >
-            <div className="aspect-[4/3] w-full">
-              {item.type === 'video' ? (
-                <video 
-                  src={item.video}
-                  className="absolute inset-0 object-cover w-full h-full"
-                  alt={item.alt}
-                  loop
-                  playsInline
-                  preload="metadata"
-                />
-              ) : (
-                <img 
-                  src={item.img}
-                  className="absolute inset-0 object-cover w-full h-full"
-                  alt={item.alt}
-                  loading="lazy"
-                />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white font-medium truncate">{item.alt}</span>
+      {/* Nike Product Listing Style Layout */}
+      <div className="flex">
+        {/* Sidebar Filters like Nike */}
+        <aside className="w-48 pr-6 flex-shrink-0">
+          <div className="mb-6">
+            <label className="flex items-center space-x-2 text-sm text-gray-600">
+              <div className="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" className="sr-only peer" />
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              </div>
+              <span>Pick Up Today</span>
+            </label>
+          </div>
+          <h3 className="text-base font-semibold mb-2 text-black">Media Type</h3>
+          <ul className="space-y-1 text-sm">
+            <li>
+              <button
+                onClick={() => setSelectedType('all')}
+                className={`text-left hover:underline ${selectedType === 'all' ? 'font-bold' : 'text-gray-600'}`}
+              >
+                All
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setSelectedType('images')}
+                className={`text-left hover:underline ${selectedType === 'images' ? 'font-bold' : 'text-gray-600'}`}
+              >
+                Images
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => setSelectedType('videos')}
+                className={`text-left hover:underline ${selectedType === 'videos' ? 'font-bold' : 'text-gray-600'}`}
+              >
+                Videos
+              </button>
+            </li>
+          </ul>
+          {/* Additional Nike-like filters (customize as needed) */}
+          <h3 className="text-base font-semibold mt-6 mb-2 text-black">Categories</h3>
+          <ul className="space-y-1 text-sm text-gray-600">
+            <li className="hover:underline cursor-pointer">Facilities</li>
+            <li className="hover:underline cursor-pointer">Breeding</li>
+            <li className="hover:underline cursor-pointer">Animals</li>
+            <li className="hover:underline cursor-pointer">Equipment</li>
+          </ul>
+        </aside>
+
+        {/* Main Content */}
+        <div className="flex-1">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-bold text-black">Gallery ({filteredItems.length})</h2>
+            <div className="flex items-center space-x-4">
+              <button className="text-sm text-black flex items-center">
+                Hide Filters <span className="ml-1">≡</span>
+              </button>
+              <div className="relative">
+                <select className="text-sm appearance-none bg-transparent border-none cursor-pointer">
+                  <option>Sort By</option>
+                  <option>Featured</option>
+                  <option>Newest</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                </select>
+                <span className="absolute right-0 top-0 pointer-events-none">▼</span>
               </div>
             </div>
-          </motion.div>
-        ))}
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group bg-white cursor-pointer"
+                onClick={() => openModal(index)}
+              >
+                {/* Product Image */}
+                <div className="aspect-square w-full overflow-hidden mb-3">
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.video}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={item.alt}
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  ) : (
+                    <img
+                      src={item.img}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={item.alt}
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                {/* Product Information - Nike Style */}
+                <div className="px-1">
+                  {/* Product Name */}
+                  <h3 className="text-sm font-medium text-black mb-1 leading-tight">
+                    {item.alt}
+                  </h3>
+                  {/* Category */}
+                  <p className="text-sm text-gray-600 mb-1">
+                    {item.type === 'video' ? 'Video' : 'Image'}
+                  </p>
+                  {/* Additional Info */}
+                  <p className="text-sm text-gray-600 mb-2">High Quality</p>
+                  {/* Price/Status */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-black">View Details</span>
+                    {index < 2 && (
+                      <span className="text-xs bg-red-500 text-white px-2 py-1 rounded">Best Seller</span>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Full Screen Modal */}
@@ -255,17 +348,13 @@ const Gallery = ({
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  showPrev(e);
-                }}
+                onClick={(e) => { e.stopPropagation(); showPrev(e); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 shadow-xl"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </motion.button>
-
               {/* Image Container */}
               <div className="flex items-center justify-center w-full h-full p-4">
                 <AnimatePresence custom={direction}>
@@ -282,9 +371,9 @@ const Gallery = ({
                       setIsZoomed(!isZoomed);
                     }}
                   >
-                    {allGalleryItems[currentIndex].type === 'video' ? (
-                      <video 
-                        src={allGalleryItems[currentIndex].video}
+                    {filteredItems[currentIndex].type === 'video' ? (
+                      <video
+                        src={filteredItems[currentIndex].video}
                         className="object-contain w-full h-full select-none"
                         autoPlay
                         loop
@@ -294,8 +383,8 @@ const Gallery = ({
                       />
                     ) : (
                       <motion.img
-                        src={allGalleryItems[currentIndex].img}
-                        alt={allGalleryItems[currentIndex].alt}
+                        src={filteredItems[currentIndex].img}
+                        alt={filteredItems[currentIndex].alt}
                         className="object-contain w-full h-full select-none"
                         variants={zoomVariants}
                         animate={isZoomed ? "zoomed" : "normal"}
@@ -311,23 +400,18 @@ const Gallery = ({
                   </motion.div>
                 </AnimatePresence>
               </div>
-
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  showNext(e);
-                }}
+                onClick={(e) => { e.stopPropagation(); showNext(e); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-10 shadow-xl"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </motion.button>
-
               {/* Controls */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="absolute bottom-6 left-0 right-0 flex justify-center gap-4 z-10"
@@ -335,10 +419,7 @@ const Gallery = ({
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsFullscreen(!isFullscreen);
-                  }}
+                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(!isFullscreen); }}
                   className="bg-black/50 text-white p-3 rounded-full shadow-xl"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -349,28 +430,20 @@ const Gallery = ({
                     )}
                   </svg>
                 </motion.button>
-
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsZoomed(!isZoomed);
-                  }}
+                  onClick={(e) => { e.stopPropagation(); setIsZoomed(!isZoomed); }}
                   className="bg-black/50 text-white p-3 rounded-full shadow-xl"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                   </svg>
                 </motion.button>
-
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    closeModal();
-                  }}
+                  onClick={(e) => { e.stopPropagation(); closeModal(); }}
                   className="bg-black/50 text-white p-3 rounded-full shadow-xl"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -378,14 +451,13 @@ const Gallery = ({
                   </svg>
                 </motion.button>
               </motion.div>
-
               {/* Image Counter */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="absolute top-6 right-6 bg-black/50 text-white px-4 py-2 rounded-full text-sm shadow-xl"
               >
-                {currentIndex + 1} / {allGalleryItems.length}
+                {currentIndex + 1} / {filteredItems.length}
               </motion.div>
             </div>
           </motion.div>

@@ -216,6 +216,28 @@
         }
       ]
     },
+    "story": {
+      "title": "Notre Parcours",
+      "subtitle": "De la vision à la réalité - notre engagement pour l'excellence",
+      "tab_subtitle": "Notre Engagement"
+    },
+    "tabs": {
+      "mission": {
+        "title": "Notre Mission",
+        "content": "Révolutionner l'élevage de lapins en Afrique grâce à des pratiques durables, une génétique de pointe et des programmes de formation complets qui autonomisent les agriculteurs et les communautés.",
+        "features": ["Pratiques d'élevage durables", "Autonomisation communautaire", "Programmes de reproduction de qualité", "Excellence éducative"]
+      },
+      "vision": {
+        "title": "Notre Vision",
+        "content": "Devenir le centre génétique leader de l'élevage de lapins en Afrique de l'Est, établissant la norme pour l'innovation, la durabilité et l'excellence dans les pratiques agricoles.",
+        "features": ["Leadership mondial en génétique", "Focus sur l'innovation", "Gestion environnementale", "Expansion régionale"]
+      },
+      "values": {
+        "title": "Nos Valeurs",
+        "content": "Nous nous engageons envers l'intégrité, l'excellence, la durabilité et le développement communautaire. Ces valeurs fondamentales guident chaque décision que nous prenons et chaque service que nous fournissons.",
+        "features": ["Intégrité dans toutes les opérations", "Excellence dans la prestation de services", "Durabilité dans les pratiques", "Focus sur le développement communautaire"]
+      }
+    },
     "modals": {
       "news": {
         "title": "Dernières Nouvelles & Mises à Jour",

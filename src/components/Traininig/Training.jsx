@@ -237,43 +237,49 @@ const Training = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      {/* Programs Grid */}
+    <div className="min-h-screen bg-nike-gray-50 py-24 px-4 sm:px-6 lg:px-8">
+      {/* Nike-style Programs Grid */}
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-green-800 mb-4">{t('training.title')}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center mb-20">
+          <h1 className="text-nike-5xl sm:text-nike-6xl font-display font-black text-nike-black mb-6">
+            {t('training.title')}
+          </h1>
+          <p className="text-nike-xl font-nike font-medium text-nike-gray-600 max-w-3xl mx-auto">
             {t('training.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {programs.map(program => (
-            <div key={program.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-800 mb-2">{program.title}</h2>
-                <p className="text-gray-600 mb-4">{program.description}</p>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-500">{program.duration}</span>
+            <div key={program.id} className="group bg-nike-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-nike-gray-200 hover:border-nike-black">
+              <div className="p-8">
+                <h2 className="text-nike-xl font-display font-bold text-nike-black mb-3 group-hover:text-nike-accent transition-colors duration-300">
+                  {program.title}
+                </h2>
+                <p className="text-nike-base font-nike text-nike-gray-600 mb-6 leading-relaxed">
+                  {program.description}
+                </p>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-nike-sm font-nike text-nike-gray-500 uppercase tracking-wider">{program.duration}</span>
                 </div>
                 <button
                   onClick={() => handleProgramSelect(program)}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                  className="w-full bg-nike-black text-nike-white py-3 text-nike-sm font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105"
                 >
                   {t('common.register_now')}
                 </button>
               </div>
-              <div className="bg-gray-50 px-6 py-4">
-                <h3 className="text-sm font-semibold text-gray-700 mb-2">{t('training.includes')}:</h3>
-                <ul className="space-y-2">
+              <div className="bg-nike-gray-50 px-8 py-6 border-t border-nike-gray-200">
+                <h3 className="text-nike-sm font-nike font-bold text-nike-black mb-4 uppercase tracking-wider">{t('training.includes')}:</h3>
+                <ul className="space-y-3">
                   {program.features?.map((feature, index) => (
                     <li key={index} className="flex items-start">
                       {feature.included ? (
-                        <FaCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <FaCheck className="text-nike-accent mt-1 mr-3 flex-shrink-0" />
                       ) : (
-                        <FaTimes className="text-red-500 mt-1 mr-2 flex-shrink-0" />
+                        <FaTimes className="text-nike-gray-400 mt-1 mr-3 flex-shrink-0" />
                       )}
-                      <span className="text-gray-600">{feature.text}</span>
+                      <span className="text-nike-sm font-nike text-nike-gray-600">{feature.text}</span>
                     </li>
                   ))}
                 </ul>

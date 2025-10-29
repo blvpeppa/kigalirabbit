@@ -1,0 +1,8 @@
+tasks to be applied :
+
+*on achieves
+3.fix the model for continue reading
+
+*fix errror handle pop ups to display as a modern pop up not js chrome default
+
+*add the video from youtube to gallery video

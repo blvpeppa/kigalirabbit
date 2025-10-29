@@ -122,43 +122,68 @@ const Gallery = ({
   };
 
   return (
-    <section className="px-4 py-12 mx-auto max-w-7xl">
-      {/* Gallery Title */}
+    <section className="px-4 py-12 mx-auto max-w-7xl bg-white">
+      {/* Nike-style Gallery Title */}
       {showTitle && (
-        <div className="w-full mx-auto text-center mb-16">
+        <div className="w-full mx-auto text-center mb-12">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl"
+            className="text-4xl font-bold text-black mb-4"
           >
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {t("gallery_title")}
-            </span>
+            {t("gallery_title")}
           </motion.h1>
         </div>
       )}
 
-      {/* Gallery Grid */}
-      <div className={`mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6`}>
+      {/* Nike Product Listing Style Grid */}
+      <div className={`mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8`}>
         {allGalleryItems.map((item, index) => (
           <motion.div 
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
-            whileHover={{ scale: 1.02 }}
-            className="relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+            className="group bg-white cursor-pointer"
             onClick={() => openModal(index)}
           >
-            <div className="aspect-[4/3] w-full">
+            {/* Product Image */}
+            <div className="aspect-square w-full overflow-hidden mb-3">
               <img 
                 src={item.img}
-                className="absolute inset-0 object-cover w-full h-full"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 alt={item.alt}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white font-medium truncate">{item.alt}</span>
+            </div>
+            
+            {/* Product Information - Nike Style */}
+            <div className="px-1">
+              {/* Product Name */}
+              <h3 className="text-sm font-medium text-black mb-1 leading-tight">
+                {item.alt}
+              </h3>
+              
+              {/* Category */}
+              <p className="text-sm text-gray-600 mb-1">
+                Gallery Image
+              </p>
+              
+              {/* Additional Info */}
+              <p className="text-sm text-gray-600 mb-2">
+                High Quality
+              </p>
+              
+              {/* Price/Status */}
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-black">
+                  View Details
+                </span>
+                {index < 2 && (
+                  <span className="text-xs bg-red-500 text-white px-2 py-1 rounded">
+                    Featured
+                  </span>
+                )}
               </div>
             </div>
           </motion.div>
@@ -307,13 +332,14 @@ const Gallery = ({
         )}
       </AnimatePresence>
       
-      {/* More Tours Button */}
+      {/* Nike-style CTA Button */}
       <div className="text-center mt-12">
         <button 
           onClick={handleMoreVisitsClick}
-          className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded inline-flex items-center"
+          className="group inline-flex items-center justify-center px-10 py-5 bg-nike-black text-nike-white text-nike-lg font-nike font-bold uppercase tracking-wider hover:bg-nike-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
-          {t("gallery_explore_button")} <FaArrowRight className="ml-2" />
+          {t("gallery_explore_button")}
+          <FaArrowRight className="ml-2" />
         </button>
       </div>
     </section>
