@@ -59,7 +59,7 @@ const Navbar = () => {
 
           {/* Right Icons */}
           <div className="flex items-center space-x-4">
-            <a href="mailto:info@kigalirabbits.org" className="text-black hover:text-gray-600">
+            <a href="https://mailto:info@kigalirabbits.org" className="text-black hover:text-gray-600">
               <FaPaperPlane className="text-2xl" />
             </a>
             <select 
@@ -111,7 +111,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="mt-6 flex space-x-4 justify-center">
-            <a href="mailto:info@kigalirabbits.org" className="text-black">
+            <a href="https://mailto:info@kigalirabbits.org" className="text-black">
               <FaPaperPlane className="text-2xl" />
             </a>
           </div>
