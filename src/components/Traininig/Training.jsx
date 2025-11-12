@@ -26,8 +26,7 @@ const Training = () => {
   const navigate = useNavigate();
   
   // API configuration
-  const API_BASE_URL = 'https://umuhuza.store/api/training';
-
+  const API_BASE_URL = 'https://kigalirabbitend.onrender.com/api/training';
   // Fetch training programs from API
   useEffect(() => {
     const fetchPrograms = async () => {

@@ -24,7 +24,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://umuhuza.store/api/products');
+        const response = await fetch('https://kigalirabbitend.onrender.com/api/products');
         if (!response.ok) throw new Error('Failed to fetch products');
         const { data } = await response.json();
         setProducts(data);
@@ -59,7 +59,7 @@ const Products = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('https://umuhuza.store/api/contact-product', {
+      const response = await fetch('https://localhost:7000/api/contact-product', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, productName: selectedProduct.name, quantity })

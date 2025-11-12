@@ -33,7 +33,7 @@ const PricingCards = () => {
   const [receiptData, setReceiptData] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const API_BASE_URL = 'https://umuhuza.store/api';
+  const API_BASE_URL = 'https://kigalirabbitend.onrender.com/api';
 
   useEffect(() => {
     const fetchPricingOptions = async () => {

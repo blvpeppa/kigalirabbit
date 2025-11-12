@@ -63,7 +63,7 @@ const Contact = () => {
     setNotification({ type: "", message: "" });
 
     try {
-      const response = await axios.post("https://umuhuza.store/send/contact", formData);
+      const response = await axios.post("https://kigalirabbitend.onrender.com/send/contact", formData);
       if (response.status === 201) {
         setNotification({ type: "success", message: t('contactus.success') });
         setFormData({ name: "", email: "", subject: "", message: "" });
