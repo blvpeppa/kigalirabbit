@@ -256,10 +256,6 @@ const PricingCards = () => {
                   alt={`${option.title} ${t('common.alternate_view')}`}
                   className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
-                <div className="absolute inset-0 bg-nike-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                <div className="absolute top-4 right-4 bg-nike-white px-3 py-1 text-nike-sm font-nike font-bold uppercase tracking-wider border border-nike-gray-200">
-                  {option.price}
-                </div>
               </div>
               
               <div className="p-8">
