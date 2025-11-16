@@ -34,7 +34,7 @@ const PricingCards = () => {
   const [receiptData, setReceiptData] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const API_BASE_URL = "http://localhost:7000/api";
+  const API_BASE_URL = "https://kigalirabbitend.onrender.com/api";
 
   useEffect(() => {
     const fetchPricingOptions = async () => {
