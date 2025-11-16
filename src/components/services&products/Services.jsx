@@ -2,7 +2,7 @@ import React from 'react';
 import s2 from '../../assets/S3.jpg';
 import s3 from '../../assets/gallery-1.jpg';
 import s5 from '../../assets/kit.jpg';
-import s6 from '../../assets/Rabbit.jpeg';
+import s6 from '../../assets/IMG-20250707-WA0022.jpg';
 import s7 from '../../assets/rabbits.jpg';
 import s8 from '../../assets/bleeding7.jpg';
 import Imite from '../../assets/Imite.jpg';

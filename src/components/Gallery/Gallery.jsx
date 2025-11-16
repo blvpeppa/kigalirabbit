@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import g1 from '../../assets/gallery-1.jpg';
 import g2 from '../../assets/gallery-2.jpg';
 import g3 from '../../assets/gallery-3.jpg';
-import g4 from '../../assets/gallery-4.jpg';
 import g5 from '../../assets/gallery-5.jpg';
 import g6 from '../../assets/gallery-6.jpg';
 import g7 from '../../assets/gallery-7.jpg';
@@ -34,7 +33,11 @@ import g29 from '../../assets/IMG-20250707-WA0018.jpg';
 import g30 from '../../assets/IMG-20250707-WA0020.jpg';
 import g31 from '../../assets/IMG-20250707-WA0021.jpg';
 import g32 from '../../assets/IMG-20250707-WA0022.jpg';
-
+import g33 from '../../assets/IMG-20251115-WA0002.jpg';
+import g34 from '../../assets/IMG-20251115-WA0003.jpg';
+import g35 from '../../assets/IMG-20251115-WA0004.jpg';
+import g36 from '../../assets/IMG-20251115-WA0006.jpg';
+import g37 from '../../assets/IMG-20251115-WA0007.jpg';
 // Import new images from New folder
 import new1 from '../../assets/New folder/IMG-20250730-WA0001.jpg';
 import new2 from '../../assets/New folder/IMG-20250730-WA0002.jpg';
@@ -51,7 +54,6 @@ const Gallery = ({ columns = { sm: 2, md: 3, lg: 3, xl: 4 }, gap = 6, showTitle 
     { img: g1, alt: "Gallery image 1" },
     { img: g2, alt: "Gallery image 2" },
     { img: g3, alt: "Gallery image 3" },
-    { img: g4, alt: "Gallery image 4" },
     { img: g5, alt: "Gallery image 5" },
     { img: g6, alt: "Gallery image 6" },
     { img: g7, alt: "Gallery image 7" },
@@ -80,6 +82,11 @@ const Gallery = ({ columns = { sm: 2, md: 3, lg: 3, xl: 4 }, gap = 6, showTitle 
     { img: g30, alt: "Gallery image 30" },
     { img: g31, alt: "Gallery image 31" },
     { img: g32, alt: "Gallery image 32" },
+    { img: g33, alt: "Gallery image 33" },
+    { img: g34, alt: "Gallery image 34" },
+    { img: g35, alt: "Gallery image 35" },
+    { img: g36, alt: "Gallery image 36" },
+    { img: g37, alt: "Gallery image 37" },
     // Add new images from New folder
     { img: new1, alt: "New Gallery image 1" },
     { img: new2, alt: "New Gallery image 2" },

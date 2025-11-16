@@ -10,7 +10,6 @@ const KigaliRabbitAIReport = () => {
     projectPeriod: 'January 2025 – June 2025',
     pdfLink: '/docs/Rabbit_AI_Report_2025.pdf',
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="max-w-4xl mx-auto flex items-center p-6 bg-white rounded-lg shadow-md">
@@ -22,7 +21,6 @@ const KigaliRabbitAIReport = () => {
             className="w-full h-64 object-cover rounded-lg"
           />
         </div>
-
         {/* Text and Button */}
         <div className="w-1/2 pl-6">
           <div className="inline-block px-4 py-1 bg-gray-200 text-black text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
@@ -49,5 +47,4 @@ const KigaliRabbitAIReport = () => {
     </div>
   );
 };
-
 export default KigaliRabbitAIReport;

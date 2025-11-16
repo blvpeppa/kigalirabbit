@@ -3,16 +3,18 @@ import { useTranslation } from 'react-i18next';
 import { FaPrint, FaTimes, FaSpinner, FaUsers, FaCheck } from 'react-icons/fa';
 import { jsPDF } from 'jspdf';
 import axios from 'axios';
+// visits images
 import pricing1 from "../../assets/pricing-1.jpg";
 import pricing2 from "../../assets/gallery-7.jpg";
-import pricing3 from "../../assets/gallery-8.jpg";
+import pricing3 from "../../assets/kids.jpg";
 import pricing4 from "../../assets/academic.jpg";
 import pricing5 from "../../assets/government.jpg";
-import s4 from '../../assets/satyabratasm-u_kMWN-BWyU-unsplash.jpg';
-import s5 from '../../assets/kit.jpg';
-import s6 from '../../assets/Rabbit.jpeg';
-import s7 from '../../assets/rabbits.jpg';
-import Imite from '../../assets/Imite.jpg';
+//hover images
+import s4 from '../../assets/IMG-20251115-WA0002.jpg';
+import s5 from '../../assets/IMG-20251115-WA0003.jpg';
+import s6 from '../../assets/IMG-20251115-WA0004.jpg';
+import s7 from '../../assets/IMG-20251115-WA0006.jpg';
+import Imite from '../../assets/kids.jpg';
 
 const PricingCards = () => {
   const { t } = useTranslation();
@@ -25,7 +27,6 @@ const PricingCards = () => {
     institution: '',
     visitDate: '',
     specialRequests: '',
-    visitorsCount: 1
   });
   
   const [step, setStep] = useState(1);
@@ -33,7 +34,7 @@ const PricingCards = () => {
   const [receiptData, setReceiptData] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const API_BASE_URL = 'https://kigalirabbitend.onrender.com/api';
+  const API_BASE_URL = "http://localhost:7000/api";
 
   useEffect(() => {
     const fetchPricingOptions = async () => {
@@ -88,7 +89,6 @@ const PricingCards = () => {
     setSelectedOption(option);
     setFormData(prev => ({
       ...prev,
-      visitorsCount: 1
     }));
     setStep(1);
     setMessage({ text: '', isError: false });
@@ -117,7 +117,6 @@ const PricingCards = () => {
         visitType: selectedOption.id,
         amount: totalAmount,
         requiresPayment: selectedOption.requiresPayment,
-        visitorsCount: formData.visitorsCount
       });
 
       generateReceipt({
@@ -158,7 +157,6 @@ const PricingCards = () => {
       status: apiData.status || t('receipt.pending'),
       visitDate: formData.visitDate || t('receipt.to_be_scheduled'),
       specialRequests: formData.specialRequests || t('common.none'),
-      visitorsCount: formData.visitorsCount,
       includes: selectedOption.includes
     };
     
@@ -186,7 +184,6 @@ const PricingCards = () => {
     doc.text(`${t('form.phone')}: ${formData.phone || t('common.not_provided')}`, 20, 90);
     doc.text(`${t('receipt.visit_type')}: ${receiptData.service}`, 20, 100);
     doc.text(`${t('form.visit_date')}: ${receiptData.visitDate}`, 20, 110);
-    doc.text(`${t('form.visitors_count')}: ${receiptData.visitorsCount}`, 20, 120);
     doc.text(`${t('receipt.amount')}: ${receiptData.amount}`, 20, 130);
     doc.text(`${t('receipt.payment_status')}: ${receiptData.paymentMethod}`, 20, 140);
     doc.text(`${t('form.special_requests')}: ${receiptData.specialRequests}`, 20, 150);
@@ -218,7 +215,6 @@ const PricingCards = () => {
       institution: '',
       visitDate: '',
       specialRequests: '',
-      visitorsCount: 1
     });
     setStep(1);
     setMessage({ text: '', isError: false });
@@ -338,7 +334,7 @@ const PricingCards = () => {
                         className="w-full p-2 border rounded"
                       />
                     </div>
-                    
+{/*                     
                     <div>
                       <label className="block text-gray-700 mb-1">
                         {t('form.visitors_count')} *
@@ -357,7 +353,7 @@ const PricingCards = () => {
                         className="w-full p-2 border rounded"
                         required
                       />
-                    </div>
+                    </div> */}
                     
                     {(selectedOption.title.includes(t('pricing.academic')) || selectedOption.title.includes(t('pricing.institutional'))) && (
                       <div>
@@ -438,7 +434,7 @@ const PricingCards = () => {
                       <p><span className="font-semibold">{t('receipt.reference')}:</span> {receiptData.id}</p>
                       <p><span className="font-semibold">{t('receipt.visit_type')}:</span> {receiptData.service}</p>
                       <p><span className="font-semibold">{t('receipt.date')}:</span> {receiptData.date}</p>
-                      <p><span className="font-semibold">{t('form.visitors_count')}:</span> {receiptData.visitorsCount}</p>
+                      {/* <p><span className="font-semibold">{t('form.visitors_count')}:</span> {receiptData.visitorsCount}</p> */}
                       <p><span className="font-semibold">{t('receipt.amount')}:</span> {receiptData.amount}</p>
                       <p><span className="font-semibold">{t('receipt.payment_status')}:</span> {receiptData.paymentMethod}</p>
                     </div>
