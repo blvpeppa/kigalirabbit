@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 // Import your images
-import g1 from '../../assets/gallery-1.jpg';
+import g1 from '../../assets/WhatsApp Image 2025-12-25 at 07.52.08.jpeg';
 import g2 from '../../assets/gallery-2.jpg';
 import g3 from '../../assets/gallery-3.jpg';
 import g5 from '../../assets/gallery-5.jpg';import new1 from '../../assets/New folder/IMG-20250730-WA0001.jpg';
