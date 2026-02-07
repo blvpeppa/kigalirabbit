@@ -1,0 +1,8 @@
+1).fix testimonials display reduce its scroll animation its nearly not even available 
+2).make sure all buttons work as intended sends contacts successfully : 
+A.start with the http://localhost:5174/products tell me the issue causing error while 
+derivering the contacts after we are able to deliver the product contact successfully to email then we can deliver that same message to WhatsApp 
+B.
+3)make a prompt to take all http://localhost:5174/archive details from frontend except for images you will continue to retrieve images from frontend but the title and description of the blog from the website's backend
+4)restyling my dashboard : give me all design details in this site so its dashboard can match it totally5)security checking make sure all securities are intacked and remove all vulnerabilities in frontend and a prompt to remove all possible errors you can identify in backend and for dashboard (2different prompt:backend & dashboard !for frontend its up to you) 
+

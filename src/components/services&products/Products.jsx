@@ -13,6 +13,9 @@ import s from '../../assets/WhatsApp Image 2025-05-28 at 08.54.48_0cb807a8.jpg';
 
 const Products = () => {
   const { t } = useTranslation();
+  const API_BASE_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:7000'
+    : 'https://kigalirabbitend.onrender.com';
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', address: '', message: '' });
   const [quantity, setQuantity] = useState(1);
@@ -20,14 +23,22 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [ticket, setTicket] = useState(null);
+  const fallbackImages = [s8, s2, s3, Imite, g5];
+  const fallbackHoverImages = [s4, s5, s6, s7, s];
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://kigalirabbitend.onrender.com/api/products');
+        const response = await fetch(`${API_BASE_URL}/api/products`);
         if (!response.ok) throw new Error('Failed to fetch products');
         const { data } = await response.json();
-        setProducts(data);
+        const normalized = Array.isArray(data) ? data.map((item, index) => ({
+          ...item,
+          image: item.image || item.image_url || item.photo || fallbackImages[index % fallbackImages.length],
+          hoverImage: item.hoverImage || item.hover_image || item.image_hover || fallbackHoverImages[index % fallbackHoverImages.length],
+          category: item.category || item.type || 'Product'
+        })) : [];
+        setProducts(normalized);
       } catch (error) {
         setProducts([
           { id: 1, name: 'Premium Breeding Rabbits', description: 'Healthy, pedigreed breeding stock.', image: s8, hoverImage: s4, category: 'Live Stock' },
@@ -59,15 +70,81 @@ const Products = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('https://localhost:7000/api/contact-product', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, productName: selectedProduct.name, quantity })
-      });
+      const contactPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        message: formData.message,
+        productId: selectedProduct.id,
+        productName: selectedProduct.name,
+        quantity
+      };
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Request failed');
-      setTicket(data.ticket);
+      const postJson = async (url, payload) => {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        let data = null;
+        try {
+          data = await response.json();
+        } catch {
+          data = null;
+        }
+        return { response, data };
+      };
+
+      let data = null;
+      let response = null;
+      try {
+        const result = await postJson(`${API_BASE_URL}/api/contact-product`, contactPayload);
+        response = result.response;
+        data = result.data;
+        if (!response.ok) {
+          if (![404, 405].includes(response.status)) {
+            throw new Error(data?.message || 'Request failed');
+          }
+          throw new Error('Fallback to send/contact');
+        }
+      } catch (primaryError) {
+        const subject = `Product Inquiry: ${selectedProduct.name}`;
+        const messageLines = [
+          `Product: ${selectedProduct.name}`,
+          `Quantity: ${quantity}`,
+          formData.phone ? `Phone: ${formData.phone}` : null,
+          formData.address ? `Address: ${formData.address}` : null,
+          formData.message ? `Message: ${formData.message}` : null,
+        ].filter(Boolean);
+        const message = messageLines.join('\n');
+
+        const fallback = await postJson(`${API_BASE_URL}/send/contact`, {
+          name: formData.name,
+          email: formData.email,
+          subject,
+          message
+        });
+        response = fallback.response;
+        data = fallback.data;
+        if (!response.ok) throw new Error(data?.message || 'Request failed');
+      }
+
+      setTicket(data?.ticket || { reference: `KRC-PROD-${Date.now()}` });
+
+      try {
+        await postJson(`${API_BASE_URL}/api/lead-events`, {
+          source: 'products',
+          event_type: 'contact_submit',
+          payload: {
+            productId: selectedProduct.id,
+            productName: selectedProduct.name,
+            quantity
+          }
+        });
+      } catch {
+        // Optional tracking; ignore failures
+      }
     } catch (error) {
       console.error("Submission error:", error);
       alert("Failed to submit contact request. Please try again.");
@@ -121,7 +198,7 @@ const Products = () => {
 
         {selectedProduct && (
           <div className="fixed inset-0 bg-nike-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-            <div className="bg-nike-white rounded-none max-w-lg w-full p-8 relative border border-nike-gray-200">
+            <div className="bg-nike-white rounded-none max-w-lg w-full p-8 relative border border-nike-gray-200 max-h-[90vh] overflow-y-auto">
               <button onClick={resetOrder} className="absolute top-6 right-6 text-nike-gray-400 hover:text-nike-black transition-colors duration-300">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
@@ -157,6 +234,27 @@ const Products = () => {
                       value={formData.email} 
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
                       className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
+                    <input 
+                      type="tel" 
+                      placeholder={t('form.phone')} 
+                      value={formData.phone} 
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Delivery Address (optional)" 
+                      value={formData.address} 
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })} 
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300" 
+                    />
+                    <textarea
+                      placeholder="Message / Details (optional)"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-6 py-4 border border-nike-gray-300 focus:outline-none focus:border-nike-black focus:ring-2 focus:ring-nike-gray-200 text-nike-base font-nike transition-all duration-300 resize-none"
+                      rows="4"
                     />
                   </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiSearch, FiCalendar, FiTag, FiArrowRight, FiClock, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,6 +11,9 @@ import Bloggggg from '../../assets/Bloggggg.jpg';
 const BlogArchive = () => {
   const { t, i18n } = useTranslation();
   const language = i18n.language;
+  const API_BASE_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:7000'
+    : 'https://kigalirabbitend.onrender.com';
 
   const blogs = [
     {
@@ -202,12 +205,59 @@ const BlogArchive = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTag, setSelectedTag] = useState(null);
   const [activeBlog, setActiveBlog] = useState(null);
+  const [remoteBlogs, setRemoteBlogs] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchRemoteBlogs = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/blogs`);
+        if (!response.ok) throw new Error('Failed to fetch blogs');
+        const { data } = await response.json();
+        if (isMounted) {
+          setRemoteBlogs(Array.isArray(data) ? data : []);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setRemoteBlogs([]);
+        }
+      }
+    };
+    fetchRemoteBlogs();
+    return () => {
+      isMounted = false;
+    };
+  }, [API_BASE_URL]);
+
+  const resolveLocalized = (value, fallback) => {
+    if (!value) return fallback;
+    if (typeof value === 'string') return value;
+    if (typeof value === 'object') return value[language] || value.en || fallback;
+    return fallback;
+  };
 
   const processedBlogs = blogs.map(blog => ({
     ...blog,
-    title: blog.title[language] || blog.title.en,
-    excerpt: blog.excerpt[language] || blog.excerpt.en,
-    content: blog.content[language] || blog.content.en
+    title: (() => {
+      const remote = remoteBlogs.find(b => String(b.id) === String(blog.id));
+      const localTitle = blog.title[language] || blog.title.en;
+      const remoteTitle = remote?.title || remote?.name || remote?.headline;
+      return resolveLocalized(remoteTitle, localTitle);
+    })(),
+    excerpt: (() => {
+      const remote = remoteBlogs.find(b => String(b.id) === String(blog.id));
+      const localExcerpt = blog.excerpt[language] || blog.excerpt.en;
+      const remoteExcerpt = remote?.excerpt || remote?.description || remote?.summary;
+      return resolveLocalized(remoteExcerpt, localExcerpt);
+    })(),
+    content: (() => {
+      const remote = remoteBlogs.find(b => String(b.id) === String(blog.id));
+      const localContent = blog.content[language] || blog.content.en;
+      const remoteContent = remote?.content || remote?.body;
+      if (!remoteContent) return localContent;
+      if (Array.isArray(remoteContent)) return remoteContent;
+      return resolveLocalized(remoteContent, localContent);
+    })()
   }));
 
   const allTags = [...new Set(blogs.flatMap(blog => blog.tags))];

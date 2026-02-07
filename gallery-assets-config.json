@@ -1,0 +1,319 @@
+{
+  "galleryItems": [
+    {
+      "file": "gallery-1.jpg",
+      "title": "Gallery Image 1",
+      "alt_text": "Gallery image 1",
+      "type": "image",
+      "display_order": 1
+    },
+    {
+      "file": "gallery-2.jpg",
+      "title": "Gallery Image 2",
+      "alt_text": "Gallery image 2",
+      "type": "image",
+      "display_order": 2
+    },
+    {
+      "file": "gallery-3.jpg",
+      "title": "Gallery Image 3",
+      "alt_text": "Gallery image 3",
+      "type": "image",
+      "display_order": 3
+    },
+    {
+      "file": "gallery-5.jpg",
+      "title": "Gallery Image 5",
+      "alt_text": "Gallery image 5",
+      "type": "image",
+      "display_order": 4
+    },
+    {
+      "file": "gallery-6.jpg",
+      "title": "Gallery Image 6",
+      "alt_text": "Gallery image 6",
+      "type": "image",
+      "display_order": 5
+    },
+    {
+      "file": "gallery-7.jpg",
+      "title": "Gallery Image 7",
+      "alt_text": "Gallery image 7",
+      "type": "image",
+      "display_order": 6
+    },
+    {
+      "file": "gallery-8.jpg",
+      "title": "Gallery Image 8",
+      "alt_text": "Gallery image 8",
+      "type": "image",
+      "display_order": 7
+    },
+    {
+      "file": "gallery-9.jpg",
+      "title": "Gallery Image 9",
+      "alt_text": "Gallery image 9",
+      "type": "image",
+      "display_order": 8
+    },
+    {
+      "file": "gallery-10.jpg",
+      "title": "Gallery Image 10",
+      "alt_text": "Gallery image 10",
+      "type": "image",
+      "display_order": 9
+    },
+    {
+      "file": "gallery-11.jpg",
+      "title": "Gallery Image 11",
+      "alt_text": "Gallery image 11",
+      "type": "image",
+      "display_order": 10
+    },
+    {
+      "file": "gallery-12.jpg",
+      "title": "Gallery Image 12",
+      "alt_text": "Gallery image 12",
+      "type": "image",
+      "display_order": 11
+    },
+    {
+      "file": "gallery-13.jpg",
+      "title": "Gallery Image 13",
+      "alt_text": "Gallery image 13",
+      "type": "image",
+      "display_order": 12
+    },
+    {
+      "file": "gallery-14.jpg",
+      "title": "Gallery Image 14",
+      "alt_text": "Gallery image 14",
+      "type": "image",
+      "display_order": 13
+    },
+    {
+      "file": "G1.jpg",
+      "title": "Gallery Image 15",
+      "alt_text": "Gallery image 15",
+      "type": "image",
+      "display_order": 14
+    },
+    {
+      "file": "G2.jpg",
+      "title": "Gallery Image 16",
+      "alt_text": "Gallery image 16",
+      "type": "image",
+      "display_order": 15
+    },
+    {
+      "file": "G3.jpg",
+      "title": "Gallery Image 17",
+      "alt_text": "Gallery image 17",
+      "type": "image",
+      "display_order": 16
+    },
+    {
+      "file": "G4.jpg",
+      "title": "Gallery Image 18",
+      "alt_text": "Gallery image 18",
+      "type": "image",
+      "display_order": 17
+    },
+    {
+      "file": "G5.jpg",
+      "title": "Gallery Image 19",
+      "alt_text": "Gallery image 19",
+      "type": "image",
+      "display_order": 18
+    },
+    {
+      "file": "G6.jpg",
+      "title": "Gallery Image 20",
+      "alt_text": "Gallery image 20",
+      "type": "image",
+      "display_order": 19
+    },
+    {
+      "file": "g21.jpg",
+      "title": "Gallery Image 21",
+      "alt_text": "Gallery image 21",
+      "type": "image",
+      "display_order": 20
+    },
+    {
+      "file": "IMG-20250707-WA0010.jpg",
+      "title": "Gallery Image 22",
+      "alt_text": "Gallery image 22",
+      "type": "image",
+      "display_order": 21
+    },
+    {
+      "file": "IMG-20250707-WA0012.jpg",
+      "title": "Gallery Image 23",
+      "alt_text": "Gallery image 23",
+      "type": "image",
+      "display_order": 22
+    },
+    {
+      "file": "IMG-20250707-WA0013.jpg",
+      "title": "Gallery Image 24",
+      "alt_text": "Gallery image 24",
+      "type": "image",
+      "display_order": 23
+    },
+    {
+      "file": "IMG-20250707-WA0014.jpg",
+      "title": "Gallery Image 25",
+      "alt_text": "Gallery image 25",
+      "type": "image",
+      "display_order": 24
+    },
+    {
+      "file": "IMG-20250707-WA0015.jpg",
+      "title": "Gallery Image 26",
+      "alt_text": "Gallery image 26",
+      "type": "image",
+      "display_order": 25
+    },
+    {
+      "file": "IMG-20250707-WA0016.jpg",
+      "title": "Gallery Image 27",
+      "alt_text": "Gallery image 27",
+      "type": "image",
+      "display_order": 26
+    },
+    {
+      "file": "IMG-20250707-WA0017.jpg",
+      "title": "Gallery Image 28",
+      "alt_text": "Gallery image 28",
+      "type": "image",
+      "display_order": 27
+    },
+    {
+      "file": "IMG-20250707-WA0018.jpg",
+      "title": "Gallery Image 29",
+      "alt_text": "Gallery image 29",
+      "type": "image",
+      "display_order": 28
+    },
+    {
+      "file": "IMG-20250707-WA0020.jpg",
+      "title": "Gallery Image 30",
+      "alt_text": "Gallery image 30",
+      "type": "image",
+      "display_order": 29
+    },
+    {
+      "file": "IMG-20250707-WA0021.jpg",
+      "title": "Gallery Image 31",
+      "alt_text": "Gallery image 31",
+      "type": "image",
+      "display_order": 30
+    },
+    {
+      "file": "IMG-20250707-WA0022.jpg",
+      "title": "Gallery Image 32",
+      "alt_text": "Gallery image 32",
+      "type": "image",
+      "display_order": 31
+    },
+    {
+      "file": "IMG-20251115-WA0002.jpg",
+      "title": "Gallery Image 33",
+      "alt_text": "Gallery image 33",
+      "type": "image",
+      "display_order": 32
+    },
+    {
+      "file": "IMG-20251115-WA0003.jpg",
+      "title": "Gallery Image 34",
+      "alt_text": "Gallery image 34",
+      "type": "image",
+      "display_order": 33
+    },
+    {
+      "file": "IMG-20251115-WA0004.jpg",
+      "title": "Gallery Image 35",
+      "alt_text": "Gallery image 35",
+      "type": "image",
+      "display_order": 34
+    },
+    {
+      "file": "IMG-20251115-WA0006.jpg",
+      "title": "Gallery Image 36",
+      "alt_text": "Gallery image 36",
+      "type": "image",
+      "display_order": 35
+    },
+    {
+      "file": "IMG-20251115-WA0007.jpg",
+      "title": "Gallery Image 37",
+      "alt_text": "Gallery image 37",
+      "type": "image",
+      "display_order": 36
+    },
+    {
+      "file": "New folder/IMG-20250730-WA0001.jpg",
+      "title": "New Gallery Image 1",
+      "alt_text": "New Gallery image 1",
+      "type": "image",
+      "display_order": 37
+    },
+    {
+      "file": "New folder/IMG-20250730-WA0002.jpg",
+      "title": "New Gallery Image 2",
+      "alt_text": "New Gallery image 2",
+      "type": "image",
+      "display_order": 38
+    },
+    {
+      "file": "New folder/IMG-20250730-WA0003.jpg",
+      "title": "New Gallery Image 3",
+      "alt_text": "New Gallery image 3",
+      "type": "image",
+      "display_order": 39
+    },
+    {
+      "file": "New folder/IMG-20250730-WA0004.jpg",
+      "title": "New Gallery Image 4",
+      "alt_text": "New Gallery image 4",
+      "type": "image",
+      "display_order": 40
+    },
+    {
+      "file": "New folder/IMG-20250730-WA0005.jpg",
+      "title": "New Gallery Image 5",
+      "alt_text": "New Gallery image 5",
+      "type": "image",
+      "display_order": 41
+    },
+    {
+      "file": "WhatsApp Image 2025-12-25 at 07.52.08.jpeg",
+      "title": "Gallery Image",
+      "alt_text": "Gallery image",
+      "type": "image",
+      "display_order": 42
+    },
+    {
+      "file": "New folder/VID-20250730-WA0001.mp4",
+      "title": "Rabbit Farm Video",
+      "alt_text": "Rabbit Farm Video",
+      "type": "video",
+      "display_order": 43
+    },
+    {
+      "file": "New folder/VID-20250730-WA0002.mp4",
+      "title": "Rabbit Farm Video 2",
+      "alt_text": "Rabbit Farm Video2",
+      "type": "video",
+      "display_order": 44
+    }
+  ],
+  "summary": {
+    "total_images": 42,
+    "total_videos": 2,
+    "total_items": 44,
+    "assets_directory": "src/assets"
+  }
+}
+
