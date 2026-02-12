@@ -7,7 +7,6 @@
   "archive": "Archives",
   "contact": "Contact",
   "translate": "Traduire",
-  
   "kigali_rabbit_center": "Kigali Rabbit Center",
   "why_choose": "Pourquoi choisir Kigali Rabbit Center ?",
   "banner_paragraph": "Nous sommes la première entreprise à introduire le système d'insémination artificielle de lapins dans la Communauté de l'Afrique de l'Est. Depuis 2018, nous sommes un acteur majeur dans l’élevage durable de lapins, la génétique, la formation et l’innovation.",
@@ -17,69 +16,50 @@
   "veterinary_help": "Assistance vétérinaire",
   "veterinary_paragraph": "Notre équipe expérimentée fournit une assistance vétérinaire experte pour garantir la santé optimale et la reproduction des lapins en utilisant les technologies les plus récentes.",
   "more_about": "En savoir plus",
-
   "hero_title_part1": "CENTRE",
   "hero_title_part2": "GÉNÉTIQUE",
   "hero_title_part3": "DES LAPINS",
   "hero_paragraph": "Leader de l'innovation dans l'élevage durable et la génétique des lapins.",
   "learn_more": "En savoir plus",
-
-   "services_title": "Notre Présentation",
+  "services_title": "Notre Présentation",
   "services_paragraph": "Découvrez qui nous sommes et ce que nous faisons",
-
   "service1_title": "FERME DE LAPINS DE KIGALI",
   "service1_description": "Est une société à responsabilité limitée enregistrée au Rwanda sous la loi sur les sociétés (NO 17/2018 du 13/04/2018).",
-
   "service2_title": "CENTRE GÉNÉTIQUE",
   "service2_description": "Créé en 2018 en tant qu'entreprise de reproduction durable, de formation et de conseil. Aujourd'hui, c'est devenu un CENTRE GÉNÉTIQUE DE LAPINS.",
-
   "service3_title": "Notre introduction dans la Communauté d'Afrique de l'Est",
   "service3_description": "Nous sommes la première entreprise à introduire le système d'insémination artificielle des lapins dans la CAE.",
-
   "training_title": "Programmes de formation en élevage de lapins",
   "training_paragraph": "Acquérez des compétences pratiques avec des professionnels expérimentés en élevage de lapins",
   "training_apply_button": "Postuler ici",
-
   "training_program_1_title": "Élevage de lapins pour débutants",
   "training_program_1_description": "Apprenez les bases de l'élevage de lapins, le logement et les soins de base.",
-  
   "training_program_2_title": "Techniques avancées de reproduction",
   "training_program_2_description": "Maîtrisez la reproduction, la génétique et la gestion de la reproduction des lapins.",
-  
   "training_program_3_title": "Santé et gestion des maladies des lapins",
   "training_program_3_description": "Formation complète sur la santé des lapins, les maladies courantes et la prévention.",
-  
   "training_program_4_title": "Fondamentaux de l'entreprise de lapins",
   "training_program_4_description": "Apprenez à transformer votre élevage de lapins en une entreprise rentable.",
-
-
-   "visit_title": "Options de visite",
+  "visit_title": "Options de visite",
   "visit_paragraph": "Choisissez le type de visite qui vous convient",
   "visit_apply_button": "Postuler ici",
-
   "visit_professional_title": "Visite professionnelle",
   "visit_professional_description": "Pour les chercheurs et professionnels des domaines connexes",
-
   "visit_academic_title": "Visite académique",
   "visit_academic_description": "Tarifs spéciaux pour les groupes scolaires et universitaires",
-
   "visit_institutional_title": "Visite institutionnelle",
   "visit_institutional_description": "Pour les gouvernements et les partenaires",
-
-   "notfound_title": "Page non trouvée",
+  "notfound_title": "Page non trouvée",
   "notfound_description": "Désolé, nous n’avons pas trouvé la page que vous cherchez.",
   "notfound_home_button": "Retour à l’accueil",
   "notfound_contact_support": "Contacter le support",
   "notfound_image_alt": "Homme perdu dans le désert",
-
-
   "gallery_title": "Galerie d'images",
   "gallery_image_alt_1": "Image de galerie 1",
   "gallery_image_alt_2": "Image de galerie 2",
   "gallery_image_alt_3": "Image de galerie 3",
   "gallery_image_alt_4": "Image de galerie 4",
   "gallery_explore_button": "Voir plus d'images",
-
   "testimonials": {
     "title": "Témoignages",
     "1": {
@@ -99,7 +79,6 @@
       "text": "Leur programme de formation m’a donné la confiance pour démarrer ma propre ferme de lapins. C’était pratique, concret et parfaitement adapté aux débutants comme moi."
     }
   },
-
   "footer": {
     "companyName": "KIGALIRABBITCENTER",
     "description": "est une société à responsabilité limitée enregistrée au Rwanda sous le Companies Act (NO 17/2018 du 13/04/2018) Lois du Rwanda.",
@@ -120,7 +99,6 @@
     "by": "par",
     "scrollTop": "Retour en haut"
   },
-
   "services": {
     "sectionLabel": "Nos Services",
     "sectionTitle": "Solutions Premium d'Élevage de Lapins",
@@ -143,8 +121,7 @@
     },
     "learnMore": "En savoir plus"
   },
-
-   "about": {
+  "about": {
     "meta": {
       "title": "À propos de Kigali Rabbit Center | Élevage Durable de Lapins au Rwanda",
       "description": "Découvrez Kigali Rabbit Center, pionnier du Rwanda en insémination artificielle de lapins, élevage durable et formation."
@@ -225,17 +202,32 @@
       "mission": {
         "title": "Notre Mission",
         "content": "Révolutionner l'élevage de lapins en Afrique grâce à des pratiques durables, une génétique de pointe et des programmes de formation complets qui autonomisent les agriculteurs et les communautés.",
-        "features": ["Pratiques d'élevage durables", "Autonomisation communautaire", "Programmes de reproduction de qualité", "Excellence éducative"]
+        "features": [
+          "Pratiques d'élevage durables",
+          "Autonomisation communautaire",
+          "Programmes de reproduction de qualité",
+          "Excellence éducative"
+        ]
       },
       "vision": {
         "title": "Notre Vision",
         "content": "Devenir le centre génétique leader de l'élevage de lapins en Afrique de l'Est, établissant la norme pour l'innovation, la durabilité et l'excellence dans les pratiques agricoles.",
-        "features": ["Leadership mondial en génétique", "Focus sur l'innovation", "Gestion environnementale", "Expansion régionale"]
+        "features": [
+          "Leadership mondial en génétique",
+          "Focus sur l'innovation",
+          "Gestion environnementale",
+          "Expansion régionale"
+        ]
       },
       "values": {
         "title": "Nos Valeurs",
         "content": "Nous nous engageons envers l'intégrité, l'excellence, la durabilité et le développement communautaire. Ces valeurs fondamentales guident chaque décision que nous prenons et chaque service que nous fournissons.",
-        "features": ["Intégrité dans toutes les opérations", "Excellence dans la prestation de services", "Durabilité dans les pratiques", "Focus sur le développement communautaire"]
+        "features": [
+          "Intégrité dans toutes les opérations",
+          "Excellence dans la prestation de services",
+          "Durabilité dans les pratiques",
+          "Focus sur le développement communautaire"
+        ]
       }
     },
     "modals": {
@@ -265,8 +257,7 @@
       "close": "Fermer"
     }
   },
-
-"products": {
+  "products": {
     "title": "Produits d'Élevage de Lapins",
     "subtitle": "Tout ce dont vous avez besoin pour démarrer ou développer votre élevage de lapins.",
     "contact": "Contactez-nous",
@@ -277,7 +268,6 @@
     "reference": "Référence",
     "close": "Fermer"
   },
-
   "pricing": {
     "title": "Options de Visite",
     "subtitle": "Choisissez le type de visite qui correspond à vos besoins",
@@ -305,6 +295,10 @@
       "5": {
         "title": "Visite Photographique",
         "description": "Accès spécial pour séances photo"
+      },
+      "15": {
+        "title": "Visite Personnalisee",
+        "description": "Option de visite adaptee aux demandes speciales"
       }
     },
     "include": {
@@ -351,7 +345,9 @@
   },
   "confirmation": {
     "title": "Demande Reçue!",
-    "message": "Merci pour votre demande de réservation. Notre équipe vous contactera dans les 24 heures pour confirmer votre visite et fournir les détails de paiement si nécessaire."
+    "message": "Merci pour votre demande de réservation. Notre équipe vous contactera dans les 24 heures pour confirmer votre visite et fournir les détails de paiement si nécessaire.",
+    "contact_success": "Contact KRF reussi.",
+    "contact_note": "Merci d'avoir contacte Kigali Rabbit Farm. Notre equipe a bien recu votre demande et vous recontactera bientot pour la suite."
   },
   "common": {
     "book_now": "Réserver Maintenant",
@@ -361,7 +357,7 @@
     "not_provided": "Non fourni",
     "max": "Max",
     "rwf": "RWF",
-    "register_now":"Inscription des contacts",
+    "register_now": "Inscription des contacts",
     "alternate_view": "vue alternative"
   },
   "errors": {
@@ -373,9 +369,7 @@
   "messages": {
     "processing": "Traitement de la réservation..."
   },
-
-
-"blog": {
+  "blog": {
     "title": "Articles et Centre de Connaissances",
     "subtitle": "Explorez notre collection d'articles, guides et ressources pour améliorer votre élevage de lapins",
     "featured_articles": "Articles Vedettes",
@@ -417,8 +411,6 @@
       ]
     }
   },
-
-
   "contactus": {
     "title": "Contactez-nous",
     "contactUs": "Contactez-nous",
@@ -437,50 +429,49 @@
     "fillAll": "Veuillez remplir tous les champs.",
     "invalidEmail": "Veuillez entrer une adresse e-mail valide."
   },
-
   "training": {
-  "title": "Programmes de Formation en Élevage de Lapins",
-  "subtitle": "Acquérez des compétences pratiques avec des professionnels expérimentés en élevage de lapins",
-  "apply_button": "Postuler ici",
-  "includes":"comprend",
-  "programs": {
-    "1": {
-      "title": "Élevage de lapins pour débutants",
-      "description": "Apprenez les bases de l'élevage de lapins, le logement et les soins de base."
+    "title": "Programmes de Formation en Élevage de Lapins",
+    "subtitle": "Acquérez des compétences pratiques avec des professionnels expérimentés en élevage de lapins",
+    "apply_button": "Postuler ici",
+    "includes": "comprend",
+    "programs": {
+      "1": {
+        "title": "Élevage de lapins pour débutants",
+        "description": "Apprenez les bases de l'élevage de lapins, le logement et les soins de base."
+      },
+      "2": {
+        "title": "Techniques avancées de reproduction",
+        "description": "Maîtrisez la reproduction, la génétique et la gestion de la reproduction des lapins."
+      },
+      "3": {
+        "title": "Santé et gestion des maladies des lapins",
+        "description": "Formation complète sur la santé des lapins, les maladies courantes et la prévention."
+      },
+      "4": {
+        "title": "Fondamentaux de l'entreprise de lapins",
+        "description": "Apprenez à transformer votre élevage de lapins en une entreprise rentable."
+      }
     },
-    "2": {
-      "title": "Techniques avancées de reproduction",
-      "description": "Maîtrisez la reproduction, la génétique et la gestion de la reproduction des lapins."
+    "form": {
+      "name": "Nom Complet",
+      "email": "Email",
+      "phone": "Numéro de Téléphone",
+      "location": "Localisation",
+      "experience": "Expérience Préalable en Élevage de Lapins",
+      "experience_options": {
+        "none": "Aucune expérience",
+        "beginner": "Débutant (moins d'un an)",
+        "intermediate": "Intermédiaire (1-3 ans)",
+        "advanced": "Avancé (3+ ans)"
+      },
+      "preferred_date": "Date de Formation Préférée",
+      "questions": "Questions ou Demandes Spéciales",
+      "submit": "Soumettre l'Inscription",
+      "agree_terms": "J'accepte les termes et conditions"
     },
-    "3": {
-      "title": "Santé et gestion des maladies des lapins",
-      "description": "Formation complète sur la santé des lapins, les maladies courantes et la prévention."
-    },
-    "4": {
-      "title": "Fondamentaux de l'entreprise de lapins",
-      "description": "Apprenez à transformer votre élevage de lapins en une entreprise rentable."
+    "confirmation": {
+      "title": "Inscription Reçue!",
+      "message": "Merci de vous être inscrit à {program}. Notre équipe vous contactera dans les 24 heures par téléphone ou email pour confirmer votre inscription et fournir les détails de paiement si nécessaire."
     }
-  },
-  "form": {
-    "name": "Nom Complet",
-    "email": "Email",
-    "phone": "Numéro de Téléphone",
-    "location": "Localisation",
-    "experience": "Expérience Préalable en Élevage de Lapins",
-    "experience_options": {
-      "none": "Aucune expérience",
-      "beginner": "Débutant (moins d'un an)",
-      "intermediate": "Intermédiaire (1-3 ans)",
-      "advanced": "Avancé (3+ ans)"
-    },
-    "preferred_date": "Date de Formation Préférée",
-    "questions": "Questions ou Demandes Spéciales",
-    "submit": "Soumettre l'Inscription",
-    "agree_terms": "J'accepte les termes et conditions"
-  },
-  "confirmation": {
-    "title": "Inscription Reçue!",
-    "message": "Merci de vous être inscrit à {program}. Notre équipe vous contactera dans les 24 heures par téléphone ou email pour confirmer votre inscription et fournir les détails de paiement si nécessaire."
   }
-}
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaPrint, FaTimes, FaSpinner, FaUsers, FaCheck } from 'react-icons/fa';
-import { jsPDF } from 'jspdf';
+import { FaTimes, FaSpinner, FaCheck } from 'react-icons/fa';
 import axios from 'axios';
 // visits images
 import pricing1 from "../../assets/pricing-1.jpg";
@@ -9,7 +8,7 @@ import pricing2 from "../../assets/gallery-7.jpg";
 import pricing3 from "../../assets/kids.jpg";
 import pricing4 from "../../assets/academic.jpg";
 import pricing5 from "../../assets/government.jpg";
-//hover images
+//hover imagesx
 import s4 from '../../assets/IMG-20251115-WA0002.jpg';
 import s5 from '../../assets/IMG-20251115-WA0003.jpg';
 import s6 from '../../assets/IMG-20251115-WA0004.jpg';
@@ -31,10 +30,44 @@ const PricingCards = () => {
   
   const [step, setStep] = useState(1);
   const [message, setMessage] = useState({ text: '', isError: false });
-  const [receiptData, setReceiptData] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const API_BASE_URL = "https://kigalirabbitend.onrender.com/api";
+  // const API_BASE_URL = "https://kigalirabbitend.onrender.com/api";
+  const API_BASE_URL = "http://localhost:7000/api";
+
+  const normalizeIncludeKey = (item) => {
+    if (!item) return '';
+    return item.replace(/^includes?:\/\/?/i, '').replace(/^includes?:/i, '').trim();
+  };
+
+  const getTranslatedOptionField = (option, field) => {
+    const key = `pricing.options.${option.id}.${field}`;
+    const translated = t(key);
+    if (translated !== key) {
+      return translated;
+    }
+
+    const fallback = field === 'title'
+      ? (option.title || option.name || option.label || option.type)
+      : (option.description || option.details || option.summary);
+
+    return fallback || translated;
+  };
+
+  const translateInclude = (item) => {
+    const cleanedKey = normalizeIncludeKey(item);
+    if (!cleanedKey) return '';
+    let translated = t(cleanedKey);
+    if (translated !== cleanedKey) return translated;
+
+    const prefixedKey = cleanedKey.startsWith('pricing.include.')
+      ? cleanedKey
+      : `pricing.include.${cleanedKey}`;
+    translated = t(prefixedKey);
+    if (translated !== prefixedKey) return translated;
+
+    return cleanedKey;
+  };
 
   useEffect(() => {
     const fetchPricingOptions = async () => {
@@ -42,15 +75,15 @@ const PricingCards = () => {
         const response = await axios.get(`${API_BASE_URL}/visit-options`);
         setPricingOptions(response.data.data.map(option => ({
           id: option.id,
-          title: t(`pricing.options.${option.id}.title`),
+          title: getTranslatedOptionField(option, 'title'),
           numericPrice: option.price,
           price: `${option.price.toLocaleString()} ${t('common.rwf')}`,
-          description: t(`pricing.options.${option.id}.description`),
+          description: getTranslatedOptionField(option, 'description'),
           image: getImageForOption(option.id),
           hoverImage: getHoverImageForOption(option.id),
           requiresPayment: option.price > 0,
           maxVisitors: option.max_visitors,
-          includes: option.includes.map(item => t(`${item}`))
+          includes: option.includes.map(item => translateInclude(item))
         })));
       } catch (error) {
         console.error('Error fetching pricing options:', error);
@@ -112,18 +145,11 @@ const PricingCards = () => {
 
       const totalAmount = selectedOption.numericPrice * formData.visitorsCount;
 
-      const response = await axios.post(`${API_BASE_URL}/book-visit`, {
+      await axios.post(`${API_BASE_URL}/book-visit`, {
         ...formData,
         visitType: selectedOption.id,
         amount: totalAmount,
         requiresPayment: selectedOption.requiresPayment,
-      });
-
-      generateReceipt({
-        bookingId: response.data.data?.bookingId || `KRC-${Date.now()}`,
-        status: 'pending',
-        paymentMethod: selectedOption.requiresPayment ? 'pending' : 'free',
-        totalAmount
       });
       setStep(2);
     } catch (error) {
@@ -137,74 +163,6 @@ const PricingCards = () => {
     }
   };
 
-  const generateReceipt = (apiData) => {
-    const paymentMethod = selectedOption.requiresPayment ? 
-      t('receipt.payment_pending') : t('receipt.free');
-
-    const totalAmount = apiData.totalAmount || selectedOption.numericPrice * formData.visitorsCount;
-
-    const receipt = {
-      id: apiData.bookingId,
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      customer: formData.name,
-      email: formData.email,
-      service: selectedOption.title,
-      amount: `${totalAmount.toLocaleString()} ${t('common.rwf')}`,
-      description: selectedOption.description,
-      image: selectedOption.image,
-      paymentMethod,
-      status: apiData.status || t('receipt.pending'),
-      visitDate: formData.visitDate || t('receipt.to_be_scheduled'),
-      specialRequests: formData.specialRequests || t('common.none'),
-      includes: selectedOption.includes
-    };
-    
-    setReceiptData(receipt);
-  };
-
-  const generatePDFReceipt = () => {
-    const doc = new jsPDF();
-    
-    // Add header
-    doc.setFontSize(20);
-    doc.setTextColor(40, 103, 45);
-    doc.text(t('receipt.farm_name'), 105, 20, null, null, 'center');
-    
-    doc.setFontSize(16);
-    doc.setTextColor(0, 0, 0);
-    doc.text(t('receipt.title'), 105, 30, null, null, 'center');
-    
-    // Add receipt details
-    doc.setFontSize(12);
-    doc.text(`${t('receipt.request_id')}: ${receiptData.id}`, 20, 50);
-    doc.text(`${t('receipt.date')}: ${receiptData.date} ${t('receipt.at')} ${receiptData.time}`, 20, 60);
-    doc.text(`${t('form.name')}: ${receiptData.customer}`, 20, 70);
-    doc.text(`${t('form.email')}: ${receiptData.email}`, 20, 80);
-    doc.text(`${t('form.phone')}: ${formData.phone || t('common.not_provided')}`, 20, 90);
-    doc.text(`${t('receipt.visit_type')}: ${receiptData.service}`, 20, 100);
-    doc.text(`${t('form.visit_date')}: ${receiptData.visitDate}`, 20, 110);
-    doc.text(`${t('receipt.amount')}: ${receiptData.amount}`, 20, 130);
-    doc.text(`${t('receipt.payment_status')}: ${receiptData.paymentMethod}`, 20, 140);
-    doc.text(`${t('form.special_requests')}: ${receiptData.specialRequests}`, 20, 150);
-    
-    // Add included features
-    doc.setFontSize(12);
-    doc.text(t('receipt.included_features'), 20, 170);
-    let yPosition = 180;
-    receiptData.includes.forEach((item, index) => {
-      doc.text(`✓ ${item}`, 25, yPosition);
-      yPosition += 10;
-    });
-    
-    // Add note
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text(t('receipt.thank_you_note'), 20, yPosition + 10);
-    
-    // Save the PDF
-    doc.save(`${t('receipt.filename_prefix')}_${receiptData.id}.pdf`);
-  };
 
   const resetForm = () => {
     setSelectedOption(null);
@@ -218,7 +176,6 @@ const PricingCards = () => {
     });
     setStep(1);
     setMessage({ text: '', isError: false });
-    setReceiptData(null);
     setIsProcessing(false);
   };
 
@@ -422,50 +379,24 @@ const PricingCards = () => {
                   </form>
                 )}
 
-                {step === 2 && receiptData && (
+                {step === 2 && (
                   <div className="text-center">
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                      <FaCheck className="text-green-600" />
+                    </div>
                     <h3 className="text-2xl font-bold text-gray-800 mb-2">{t('confirmation.title')}</h3>
-                    <p className="text-green-600 mb-6">
-                      {t('confirmation.message')}
+                    <p className="text-green-700 font-semibold mb-3">
+                      {t('confirmation.contact_success')}
                     </p>
-                    
-                    <div className="bg-gray-100 p-4 rounded-lg mb-6 text-left">
-                      <h4 className="font-bold mb-3">{t('receipt.summary')}</h4>
-                      <p><span className="font-semibold">{t('receipt.reference')}:</span> {receiptData.id}</p>
-                      <p><span className="font-semibold">{t('receipt.visit_type')}:</span> {receiptData.service}</p>
-                      <p><span className="font-semibold">{t('receipt.date')}:</span> {receiptData.date}</p>
-                      {/* <p><span className="font-semibold">{t('form.visitors_count')}:</span> {receiptData.visitorsCount}</p> */}
-                      <p><span className="font-semibold">{t('receipt.amount')}:</span> {receiptData.amount}</p>
-                      <p><span className="font-semibold">{t('receipt.payment_status')}:</span> {receiptData.paymentMethod}</p>
-                    </div>
-
-                    <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
-                      <h4 className="font-bold mb-3">{t('receipt.your_package_includes')}:</h4>
-                      <ul className="space-y-2">
-                        {receiptData.includes.map((item, index) => (
-                          <li key={index} className="flex items-start">
-                            <FaCheck className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="flex flex-col space-y-3">
-                      <button
-                        onClick={generatePDFReceipt}
-                        className="bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded flex items-center justify-center space-x-2"
-                      >
-                        <FaPrint />
-                        <span>{t('receipt.download_receipt')}</span>
-                      </button>
-                      <button
-                        onClick={resetForm}
-                        className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded"
-                      >
-                        {t('common.close')}
-                      </button>
-                    </div>
+                    <p className="text-gray-600 mb-6">
+                      {t('confirmation.contact_note')}
+                    </p>
+                    <button
+                      onClick={resetForm}
+                      className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded"
+                    >
+                      {t('common.close')}
+                    </button>
                   </div>
                 )}
               </div>
