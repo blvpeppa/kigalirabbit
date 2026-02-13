@@ -32,8 +32,8 @@ const PricingCards = () => {
   const [message, setMessage] = useState({ text: '', isError: false });
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // const API_BASE_URL = "https://kigalirabbitend.onrender.com/api";
-  const API_BASE_URL = "http://localhost:7000/api";
+  const API_BASE_URL = "https://kigalirabbitend.onrender.com/api";
+  // const API_BASE_URL = "http://localhost:7000/api";
 
   const normalizeIncludeKey = (item) => {
     if (!item) return '';
